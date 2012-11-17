@@ -1,0 +1,179 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:gravity="center_horizontal"
+            android:text="@string/title_creditBalanceForm"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.45dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:background="#808080" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="5sp"
+            android:text="@string/title_phoneNumber" />
+
+        <EditText
+            android:id="@+id/textPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:ellipsize="end"
+            android:hint="@string/hint_phoneNumber"
+            android:inputType="phone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="5sp"
+            android:text="@string/title_operatorSpinner" />
+
+        <Spinner
+            android:id="@+id/spinnerOperator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:entries="@array/operatorSpinner"
+            android:prompt="@string/operatorPrompt" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.45dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="15dip"
+            android:background="#808080" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="5sp"
+            android:text="@string/title_nominalValue" />
+
+        <RadioGroup
+            android:id="@+id/radiogroupNominal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:checkedButton="@+id/radioSpinner"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/radioSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="5sp"
+                android:text="@string/title_predefinedInput" 
+                android:visibility="visible"/>
+
+            <Spinner
+                android:id="@+id/spinnerNominal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:entries="@array/nominalSpinner"
+                android:prompt="@string/nominalPrompt" />
+
+            <RadioButton
+                android:id="@+id/radioText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="5sp"
+                android:text="@string/title_manualInput" />
+
+            <EditText
+                android:id="@+id/textNominalValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:ellipsize="end"
+                android:hint="@string/hint_manualInput"
+                android:inputType="number"
+                android:visibility="gone" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.45dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="15dip"
+            android:background="#808080" />
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="5sp"
+            android:text="@string/title_userPin" />
+        
+        <EditText
+            android:id="@+id/textUserPin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:ellipsize="end"
+            android:hint="@string/hint_userPin"
+            android:inputType="textPassword" />
+        
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.45dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="15dip"
+            android:background="#808080" />
+
+        <Button
+            android:id="@+id/btn_sendForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="15dip"
+            android:text="@string/button_sendForm" />
+    </LinearLayout>
+
+</ScrollView>
