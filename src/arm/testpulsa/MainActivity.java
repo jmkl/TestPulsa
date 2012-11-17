@@ -6,7 +6,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
@@ -30,16 +32,22 @@ public class MainActivity extends Activity {
 	RadioButton rdoPredefined;
 	RadioButton rdoManual;
 	Button btnSendForm;
+	
+	private static String userPin;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		userPin = prefs.getString("pin", "");
+		
+		showPinDialogIfPinNotSet(userPin);
 
 		// Find view
 		txtPhone = (EditText) findViewById(R.id.textPhoneNumber);
 		txtNominal = (EditText) findViewById(R.id.textNominalValue);
-		txtUserPin = (EditText) findViewById(R.id.textUserPin);
 		spnOperator = (Spinner) findViewById(R.id.spinnerOperator);
 		spnNominal = (Spinner) findViewById(R.id.spinnerNominal);
 		groupRadio = (RadioGroup) findViewById(R.id.radiogroupNominal);
@@ -93,14 +101,20 @@ public class MainActivity extends Activity {
 
 		Log.i(TAG, "onCreate");
 	}
-
+	
+	private void showPinDialogIfPinNotSet(String pin) {
+		if (pin.length() < 3) {
+			new PinDialog(this).show();
+		}
+	}
+	
 	private class SendButtonOnClick implements OnClickListener {
 
 		public void onClick(View v) {
-			String telpNumber, userPin, operator = null, value = null;
+			String telpNumber, operator = null, value = null;
 			NominalValue nv = (NominalValue) spnNominal.getSelectedItem();
 			telpNumber = txtPhone.getText().toString();
-			userPin = txtUserPin.getText().toString();
+			/* userPin = txtUserPin.getText().toString(); not used */ 
 			OperatorOption op = (OperatorOption) spnOperator.getSelectedItem();
 			if (rdoPredefined.isChecked()) {
 				value = String.valueOf(nv.value);
@@ -113,7 +127,7 @@ public class MainActivity extends Activity {
 			String smsMessage = String.format(
 					"%s%s.%s.%s",
 					operator, value, telpNumber, userPin);
-			sendSMS("+6287792021743", smsMessage);
+			sendSMS("5556", smsMessage); // don't use personal phone number
 			Log.d(TAG, "onSendButton Clicked, Send SMS will be:\n" + smsMessage);
 		}
 	}
