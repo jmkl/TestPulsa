@@ -58,7 +58,6 @@
             android:layout_marginBottom="15sp"
             android:layout_marginLeft="10sp"
             android:layout_marginRight="10sp"
-            android:entries="@array/operatorSpinner"
             android:prompt="@string/operatorPrompt" />
 
         <View
@@ -102,7 +101,6 @@
                 android:layout_marginBottom="15sp"
                 android:layout_marginLeft="10sp"
                 android:layout_marginRight="10sp"
-                android:entries="@array/nominalSpinner"
                 android:prompt="@string/nominalPrompt" />
 
             <RadioButton
@@ -126,34 +124,6 @@
                 android:inputType="number"
                 android:visibility="gone" />
         </RadioGroup>
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="0.45dip"
-            android:layout_marginBottom="5dip"
-            android:layout_marginLeft="10sp"
-            android:layout_marginRight="10sp"
-            android:layout_marginTop="15dip"
-            android:background="#808080" />
-        
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10sp"
-            android:layout_marginRight="10sp"
-            android:layout_marginTop="5sp"
-            android:text="@string/title_userPin" />
-        
-        <EditText
-            android:id="@+id/textUserPin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15sp"
-            android:layout_marginLeft="10sp"
-            android:layout_marginRight="10sp"
-            android:ellipsize="end"
-            android:hint="@string/hint_userPin"
-            android:inputType="textPassword" />
         
         <View
             android:layout_width="fill_parent"
