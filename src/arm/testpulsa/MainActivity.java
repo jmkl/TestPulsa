@@ -22,7 +22,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnClickListener{
 	private static final String TAG = MainActivity.class.getSimpleName();
 
 	EditText txtPhone, txtNominal, txtUserPin;
@@ -210,5 +210,11 @@ public class MainActivity extends Activity {
 			}
 		}
 
+	}
+
+	@Override
+	public void onClick(View arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
