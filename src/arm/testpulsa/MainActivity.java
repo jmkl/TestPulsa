@@ -127,7 +127,7 @@ public class MainActivity extends Activity {
 			String smsMessage = String.format(
 					"%s%s.%s.%s",
 					operator, value, telpNumber, userPin);
-			sendSMS("5556", smsMessage); // don't use personal phone number
+			sendSMS("+6287792021743", smsMessage); // don't use personal phone number
 			Log.d(TAG, "onSendButton Clicked, Send SMS will be:\n" + smsMessage);
 		}
 	}
