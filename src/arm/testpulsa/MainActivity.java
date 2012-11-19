@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -22,7 +24,8 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnClickListener{
+public class MainActivity extends Activity implements OnClickListener {
+
 	private static final String TAG = MainActivity.class.getSimpleName();
 
 	EditText txtPhone, txtNominal, txtUserPin;
@@ -32,17 +35,18 @@ public class MainActivity extends Activity implements OnClickListener{
 	RadioButton rdoPredefined;
 	RadioButton rdoManual;
 	Button btnSendForm;
-	
+
 	private static String userPin;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+		SharedPreferences prefs = PreferenceManager
+				.getDefaultSharedPreferences(this);
 		userPin = prefs.getString("pin", "");
-		
+
 		showPinDialogIfPinNotSet(userPin);
 
 		// Find view
@@ -61,8 +65,8 @@ public class MainActivity extends Activity implements OnClickListener{
 
 		// spinner nominal adapter
 		ArrayAdapter<OperatorOption> spnOperatorOptionAdapter = new ArrayAdapter<OperatorOption>(
-				this, android.R.layout.simple_spinner_item, new OperatorOption[] {
-						new OperatorOption(1, "Telkomsel", "S"),
+				this, android.R.layout.simple_spinner_item,
+				new OperatorOption[] { new OperatorOption(1, "Telkomsel", "S"),
 						new OperatorOption(2, "Telkomsel Transfer", "P"),
 						new OperatorOption(3, "Flexi", "F"),
 						new OperatorOption(4, "Flexi Transfer", "FT"),
@@ -78,13 +82,13 @@ public class MainActivity extends Activity implements OnClickListener{
 						new OperatorOption(14, "Esia", "E"),
 						new OperatorOption(15, "Esia Transfer", "ET"),
 						new OperatorOption(16, "Smartfren", "V"),
-						new OperatorOption(17, "Ceria", "C")});
+						new OperatorOption(17, "Ceria", "C") });
 		spnOperatorOptionAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnOperator.setAdapter(spnOperatorOptionAdapter);
 
 		Log.i(TAG, "onCreate");
-		
+
 		// spinner nominal adapter
 		ArrayAdapter<NominalValue> spnNominalAdapter = new ArrayAdapter<NominalValue>(
 				this, android.R.layout.simple_spinner_item, new NominalValue[] {
@@ -101,20 +105,20 @@ public class MainActivity extends Activity implements OnClickListener{
 
 		Log.i(TAG, "onCreate");
 	}
-	
+
 	private void showPinDialogIfPinNotSet(String pin) {
 		if (pin.length() < 3) {
 			new PinDialog(this).show();
 		}
 	}
-	
+
 	private class SendButtonOnClick implements OnClickListener {
 
 		public void onClick(View v) {
 			String telpNumber, operator = null, value = null;
 			NominalValue nv = (NominalValue) spnNominal.getSelectedItem();
 			telpNumber = txtPhone.getText().toString();
-			/* userPin = txtUserPin.getText().toString(); not used */ 
+			/* userPin = txtUserPin.getText().toString(); not used */
 			OperatorOption op = (OperatorOption) spnOperator.getSelectedItem();
 			if (rdoPredefined.isChecked()) {
 				value = String.valueOf(nv.value);
@@ -124,10 +128,10 @@ public class MainActivity extends Activity implements OnClickListener{
 			}
 
 			// Send SMS
-			String smsMessage = String.format(
-					"%s%s.%s.%s",
-					operator, value, telpNumber, userPin);
-			sendSMS("+6287792021743", smsMessage); // don't use personal phone number
+			String smsMessage = String.format("%s%s.%s.%s", operator, value,
+					telpNumber, userPin);
+			sendSMS("+6287792021743", smsMessage); // don't use personal phone
+													// number
 			Log.d(TAG, "onSendButton Clicked, Send SMS will be:\n" + smsMessage);
 		}
 	}
@@ -215,6 +219,21 @@ public class MainActivity extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.mainmenu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId() == R.id.opt_About) {
+			Toast.makeText(getBaseContext(), "About Tapencet",
+					Toast.LENGTH_LONG).show();
+		}
+		return false;
 	}
 }
