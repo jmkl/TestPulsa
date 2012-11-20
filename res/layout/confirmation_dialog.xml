@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dip"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e4e4e4" >
+
+    <!-- Nomer Telp -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="5sp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="110dip"
+            android:layout_height="wrap_content"
+            android:text="@string/conf_titleTelp" />
+
+        <TextView
+            android:id="@+id/conf_textPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!-- Operator -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="110dip"
+            android:layout_height="wrap_content"
+            android:text="@string/conf_titleOperator" />
+
+        <TextView
+            android:id="@+id/conf_textOperator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!-- Nominal -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="110dip"
+            android:layout_height="wrap_content"
+            android:text="@string/conf_titleNominal" />
+
+        <TextView
+            android:id="@+id/conf_textNominal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dip">
+
+        <ImageButton
+            android:id="@+id/conf_buttonEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="10dip"
+            android:contentDescription="@string/cntDesc_buttonEdit"
+            android:background="@null"
+            android:src="@drawable/button_edit" />
+
+        <ImageButton
+            android:id="@+id/conf_buttonConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal"
+            android:layout_marginLeft="10dip"
+            android:contentDescription="@string/cntDesc_buttonKirim"
+            android:background="@null"
+            android:src="@drawable/button_kirim" />
+    </TableRow>
+
+</LinearLayout>
