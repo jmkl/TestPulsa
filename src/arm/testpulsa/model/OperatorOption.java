@@ -1,4 +1,4 @@
-package arm.testpulsa;
+package arm.testpulsa.model;
 
 public class OperatorOption {
 	public int id = 0;

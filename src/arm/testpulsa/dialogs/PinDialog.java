@@ -1,4 +1,4 @@
-package arm.testpulsa;
+package arm.testpulsa.dialogs;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import arm.testpulsa.MainActivity;
+import arm.testpulsa.R;
 
 public class PinDialog extends AlertDialog implements
 		DialogInterface.OnClickListener {
