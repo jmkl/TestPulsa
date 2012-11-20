@@ -7,9 +7,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.telephony.SmsManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,8 +26,12 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.Toast;
+import arm.testpulsa.dialogs.ConfirmationDialog;
+import arm.testpulsa.dialogs.PinDialog;
+import arm.testpulsa.model.NominalValue;
+import arm.testpulsa.model.OperatorOption;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity implements TextWatcher {
 
 	private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -60,9 +67,59 @@ public class MainActivity extends Activity implements OnClickListener {
 		btnSendForm = (Button) findViewById(R.id.btn_sendForm);
 
 		// set listener
+		txtPhone.addTextChangedListener(this);
 		groupRadio.setOnCheckedChangeListener(new GroupRadioCheckedChange());
+		btnSendForm.setEnabled(false);
 		btnSendForm.setOnClickListener(new SendButtonOnClick());
+		setAdapter();
+		Log.i(TAG, "onCreate");
+	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.mainmenu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId() == R.id.opt_About) {
+			Toast.makeText(getBaseContext(), "About Tapencet",
+					Toast.LENGTH_LONG).show();
+		}
+		return false;
+	}
+
+	@Override
+	public void afterTextChanged(Editable s) {
+		try {
+			TextHelper.verifyPhoneNumber(s);
+			btnSendForm.setEnabled(true);
+			txtPhone.setTextColor(Color.BLACK);
+		} catch (ArmPulsaAddressMalformedException e) {
+			btnSendForm.setEnabled(false);
+			txtPhone.setTextColor(Color.RED);
+		}
+	}
+
+	@Override
+	public void beforeTextChanged(CharSequence s, int start, int count,
+			int after) {
+		// Nothing to do here!
+	}
+
+	@Override
+	public void onTextChanged(CharSequence s, int start, int before, int count) {
+		// Noting to do here!
+	}
+
+	private void showPinDialogIfPinNotSet(String pin) {
+		if (pin.length() < 3) {
+			new PinDialog(this).show();
+		}
+	}
+
+	private void setAdapter() {
 		// spinner nominal adapter
 		ArrayAdapter<OperatorOption> spnOperatorOptionAdapter = new ArrayAdapter<OperatorOption>(
 				this, android.R.layout.simple_spinner_item,
@@ -87,8 +144,6 @@ public class MainActivity extends Activity implements OnClickListener {
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnOperator.setAdapter(spnOperatorOptionAdapter);
 
-		Log.i(TAG, "onCreate");
-
 		// spinner nominal adapter
 		ArrayAdapter<NominalValue> spnNominalAdapter = new ArrayAdapter<NominalValue>(
 				this, android.R.layout.simple_spinner_item, new NominalValue[] {
@@ -102,38 +157,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		spnNominalAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnNominal.setAdapter(spnNominalAdapter);
-
-		Log.i(TAG, "onCreate");
-	}
-
-	private void showPinDialogIfPinNotSet(String pin) {
-		if (pin.length() < 3) {
-			new PinDialog(this).show();
-		}
-	}
-
-	private class SendButtonOnClick implements OnClickListener {
-
-		public void onClick(View v) {
-			String telpNumber, operator = null, value = null;
-			NominalValue nv = (NominalValue) spnNominal.getSelectedItem();
-			telpNumber = txtPhone.getText().toString();
-			/* userPin = txtUserPin.getText().toString(); not used */
-			OperatorOption op = (OperatorOption) spnOperator.getSelectedItem();
-			if (rdoPredefined.isChecked()) {
-				value = String.valueOf(nv.value);
-				operator = String.valueOf(op.kode);
-			} else if (rdoManual.isChecked()) {
-				value = txtNominal.getText().toString();
-			}
-
-			// Send SMS
-			String smsMessage = String.format("%s%s.%s.%s", operator, value,
-					telpNumber, userPin);
-			sendSMS("+6287792021743", smsMessage); // don't use personal phone
-													// number
-			Log.d(TAG, "onSendButton Clicked, Send SMS will be:\n" + smsMessage);
-		}
 	}
 
 	public void sendSMS(String phoneNo, String message) {
@@ -152,7 +175,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			public void onReceive(Context arg0, Intent arg1) {
 				switch (getResultCode()) {
 				case Activity.RESULT_OK:
-					Toast.makeText(getBaseContext(), "SMS sent",
+					Toast.makeText(getBaseContext(), "SMS dikirim",
 							Toast.LENGTH_SHORT).show();
 					break;
 				case SmsManager.RESULT_ERROR_GENERIC_FAILURE:
@@ -194,7 +217,54 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		SmsManager sms = SmsManager.getDefault();
 		sms.sendTextMessage(phoneNo, null, message, sentPI, deliveredPI);
+	}
 
+	private class SendButtonOnClick implements OnClickListener {
+
+		public void onClick(View v) {
+			String telpNumber, operator = null, value = null;
+			NominalValue nv = (NominalValue) spnNominal.getSelectedItem();
+			telpNumber = txtPhone.getText().toString();
+			/* userPin = txtUserPin.getText().toString(); not used */
+			OperatorOption op = (OperatorOption) spnOperator.getSelectedItem();
+			if (rdoPredefined.isChecked()) {
+				value = String.valueOf(nv.value);
+				operator = String.valueOf(op.kode);
+			} else if (rdoManual.isChecked()) {
+				value = txtNominal.getText().toString();
+			}
+
+			// Send SMS
+			final String smsMessage = String.format("%s%s.%s.%s", operator,
+					value, telpNumber, userPin);
+			new ConfirmationDialog(MainActivity.this, telpNumber,
+					String.valueOf(op.name), String.valueOf(nv.name),
+					new ConfirmDialogListener() {
+
+						@Override
+						public void onConfirmed() {
+							sendSMS("5556", smsMessage);
+
+							// reset view to default value
+							txtPhone.setText("");
+							if (rdoManual.isChecked()) {
+								txtNominal.setText("");
+							}
+							spnOperator.setSelection(0);
+							spnNominal.setSelection(0);
+
+							// request focus to txtPhone
+							txtPhone.requestFocus();
+						}
+
+						@Override
+						public void onCancel() {
+							// nothing to do here
+						}
+					}).show();
+
+			Log.d(TAG, "onSendButton Clicked, Send SMS will be:\n" + smsMessage);
+		}
 	}
 
 	private class GroupRadioCheckedChange implements OnCheckedChangeListener {
@@ -213,27 +283,28 @@ public class MainActivity extends Activity implements OnClickListener {
 				break;
 			}
 		}
-
 	}
 
-	@Override
-	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
+	/**
+	 * Callback interface for Confirmation Dialog
+	 * 
+	 * @author adrianbabame copas from Facebook SDK
+	 * 
+	 */
+	public static interface ConfirmDialogListener {
+		/**
+		 * Called when ok pressed
+		 * 
+		 * Executed by thread that executed dialog
+		 */
+		public void onConfirmed();
 
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.mainmenu, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == R.id.opt_About) {
-			Toast.makeText(getBaseContext(), "About Tapencet",
-					Toast.LENGTH_LONG).show();
-		}
-		return false;
+		/**
+		 * Called when a dialog is canceled by the user.
+		 * 
+		 * Executed by the thread that initiated the dialog.
+		 * 
+		 */
+		public void onCancel();
 	}
 }
