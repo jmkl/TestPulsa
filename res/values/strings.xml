@@ -7,7 +7,11 @@
     <string name="title_creditBalanceForm">Mobile Credit Balance Form</string>
     <string name="title_phoneNumber">Masukkan Nomor Tujuan :</string>
     <string name="hint_phoneNumber">Masukkan nomor tujuan yang valid</string>
-    <string name="button_sendForm">Kirim!</string>
+    <string name="button_sendForm">Next</string>
+    
+    <!-- Content Description for Image -->
+    <string name="cntDesc_buttonKirim">Kirim Button</string>
+    <string name="cntDesc_buttonEdit">Edit Button</string>
 
     <!-- Spinner -->
     <!-- Operator -->
@@ -20,8 +24,18 @@
     <string name="title_nominalValue">Nominal :</string>
     <string name="hint_manualInput">Masukkan jumlah</string>
     <string name="nominalPrompt">Silakan pilih nilai nominal</string>
-
     <string name="hint_userPin">Masukkan kode PIN anda yang valid</string>
     <string name="title_userPin">Masukkan kode PIN anda :</string>
+
+    <!-- Confirmation Dialog -->
+    <string name="confirmation_info">Konfirmasi Data</string>
+    <string name="conf_titleTelp">Nomer Telepon</string>
+    <string name="conf_titleOperator">Operator</string>
+    <string name="conf_titleNominal">Nominal</string>
+    <string name="conf_buttonEdit">Edit</string>
+    <string name="conf_buttonConfirm">Kirim</string>
+
+    <!-- Menu -->
+    <string name="title_About">About</string>
 
 </resources>
