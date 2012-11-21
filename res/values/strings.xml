@@ -36,6 +36,11 @@
     <string name="conf_buttonConfirm">Kirim</string>
 
     <!-- Menu -->
-    <string name="title_About">About</string>
+    <string name="opt_about">About</string>
+    <string name="opt_cekSaldo">Cek Saldo</string>
+    <string name="opt_gantiPin">Ganti Pin</string>
+    
+    <!-- About -->
+	<string name="title_about">About this application :</string>
 
 </resources>
