@@ -2,10 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/opt_About"
+        android:id="@+id/opt_about"
         android:enabled="true"
-        android:title="@string/title_About"
-        android:visible="true">
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/opt_about"/>
+    <item
+        android:id="@+id/opt_cekSaldo"
+        android:enabled="true"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/opt_cekSaldo">
+    </item>
+    <item
+        android:id="@+id/opt_gantiPin"
+        android:enabled="true"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/opt_gantiPin">
     </item>
 
 </menu>
