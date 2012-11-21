@@ -1,6 +1,15 @@
 package arm.testpulsa.enkrip;
 /*
  * Maenkrip String Jadi Baso Planet
+ * Caro gunoannyo :
+ * 
+ * String mString = "mypassword";
+ * 
+ * EnkripDekrip mEnDek = new EnkripDekrip();
+ * String EnkripPass = mEnDek.enkode(mString);
+ * Log.d("TES ENKRIP PASSWORD JADI BASE64", EnkripPass);
+ * 
+ * 
  * */
 import android.util.Base64;
 
