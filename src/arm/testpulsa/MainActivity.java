@@ -15,6 +15,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,6 +27,7 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.Toast;
+import arm.testpulsa.about.AboutApp;
 import arm.testpulsa.dialogs.ConfirmationDialog;
 import arm.testpulsa.dialogs.PinDialog;
 import arm.testpulsa.model.NominalValue;
@@ -75,19 +77,24 @@ public class MainActivity extends Activity implements TextWatcher {
 		Log.i(TAG, "onCreate");
 	}
 
+	//TODO force close after about item is pressed
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.mainmenu, menu);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.mainmenu, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == R.id.opt_About) {
-			Toast.makeText(getBaseContext(), "About Tapencet",
-					Toast.LENGTH_LONG).show();
+		switch (item.getItemId()) {
+		case R.id.opt_about:
+			startActivity(new Intent(MainActivity.this, AboutApp.class));
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
 		}
-		return false;
 	}
 
 	@Override
@@ -243,7 +250,7 @@ public class MainActivity extends Activity implements TextWatcher {
 
 						@Override
 						public void onConfirmed() {
-							sendSMS("5556", smsMessage);
+							sendSMS("+6287792021743", smsMessage);
 
 							// reset view to default value
 							txtPhone.setText("");
@@ -289,7 +296,7 @@ public class MainActivity extends Activity implements TextWatcher {
 	 * Callback interface for Confirmation Dialog
 	 * 
 	 * @author adrianbabame copas from Facebook SDK
-	 * 
+	 * @author damnedivan copas from adrianbabame
 	 */
 	public static interface ConfirmDialogListener {
 		/**
