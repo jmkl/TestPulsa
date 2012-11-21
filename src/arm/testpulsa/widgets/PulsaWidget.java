@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 import arm.testpulsa.R;
 
+//FIXME something must be wrong here
 public class PulsaWidget extends AppWidgetProvider{
 
 	public void onReceive(Context context, Intent intent)
