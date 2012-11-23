@@ -233,8 +233,6 @@ public class MainActivity extends Activity implements TextWatcher {
 		sms.sendTextMessage(phoneNo, null, message, sentPI, deliveredPI);
 	}
 
-	// FIXME some problems maybe shown up because of a change in the sendSMS
-	
 	private class SendButtonOnClick implements OnClickListener {
 		 
         public void onClick(View v) {
