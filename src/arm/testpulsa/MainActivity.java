@@ -32,6 +32,7 @@ import arm.testpulsa.dialogs.ConfirmationDialog;
 import arm.testpulsa.dialogs.PinDialog;
 import arm.testpulsa.model.NominalValue;
 import arm.testpulsa.model.OperatorOption;
+import arm.testpulsa.model.ServerOption;
 
 public class MainActivity extends Activity implements TextWatcher {
 
@@ -40,6 +41,7 @@ public class MainActivity extends Activity implements TextWatcher {
 	EditText txtPhone, txtNominal, txtUserPin;
 	Spinner spnOperator;
 	Spinner spnNominal;
+	Spinner spnServer;
 	RadioGroup groupRadio;
 	RadioButton rdoPredefined;
 	RadioButton rdoManual;
@@ -60,12 +62,11 @@ public class MainActivity extends Activity implements TextWatcher {
 
 		// Find view
 		txtPhone = (EditText) findViewById(R.id.textPhoneNumber);
-		txtNominal = (EditText) findViewById(R.id.textNominalValue);
 		spnOperator = (Spinner) findViewById(R.id.spinnerOperator);
+		spnServer = (Spinner) findViewById(R.id.spinnerServer);
 		spnNominal = (Spinner) findViewById(R.id.spinnerNominal);
 		groupRadio = (RadioGroup) findViewById(R.id.radiogroupNominal);
 		rdoPredefined = (RadioButton) findViewById(R.id.radioSpinner);
-		rdoManual = (RadioButton) findViewById(R.id.radioText);
 		btnSendForm = (Button) findViewById(R.id.btn_sendForm);
 
 		// set listener
@@ -77,8 +78,6 @@ public class MainActivity extends Activity implements TextWatcher {
 		Log.i(TAG, "onCreate");
 	}
 
-	//TODO force close after about item is pressed
-	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
@@ -150,6 +149,15 @@ public class MainActivity extends Activity implements TextWatcher {
 		spnOperatorOptionAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnOperator.setAdapter(spnOperatorOptionAdapter);
+
+		// spinner server adapter
+		ArrayAdapter<ServerOption> spnServerOptionAdapter = new ArrayAdapter<ServerOption>(
+				this, android.R.layout.simple_spinner_item, new ServerOption[] {
+						new ServerOption(1, "Alpha", "+6287792021743"),
+						new ServerOption(2, "Beta", "+6282389230342") });
+		spnServerOptionAdapter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spnServer.setAdapter(spnServerOptionAdapter);
 
 		// spinner nominal adapter
 		ArrayAdapter<NominalValue> spnNominalAdapter = new ArrayAdapter<NominalValue>(
@@ -234,6 +242,7 @@ public class MainActivity extends Activity implements TextWatcher {
 			telpNumber = txtPhone.getText().toString();
 			/* userPin = txtUserPin.getText().toString(); not used */
 			OperatorOption op = (OperatorOption) spnOperator.getSelectedItem();
+			ServerOption so = (ServerOption) spnServer.getSelectedItem();
 			if (rdoPredefined.isChecked()) {
 				value = String.valueOf(nv.value);
 				operator = String.valueOf(op.kode);
@@ -244,13 +253,14 @@ public class MainActivity extends Activity implements TextWatcher {
 			// Send SMS
 			final String smsMessage = String.format("%s%s.%s.%s", operator,
 					value, telpNumber, userPin);
+			final String serverPhone = String.valueOf(so.server);
 			new ConfirmationDialog(MainActivity.this, telpNumber,
 					String.valueOf(op.name), String.valueOf(nv.name),
 					new ConfirmDialogListener() {
 
 						@Override
 						public void onConfirmed() {
-							sendSMS("+6287792021743", smsMessage);
+							sendSMS(serverPhone, smsMessage);
 
 							// reset view to default value
 							txtPhone.setText("");
@@ -281,10 +291,6 @@ public class MainActivity extends Activity implements TextWatcher {
 			case R.id.radioSpinner:
 				txtNominal.setVisibility(View.GONE);
 				spnNominal.setVisibility(View.VISIBLE);
-				break;
-			case R.id.radioText:
-				txtNominal.setVisibility(View.VISIBLE);
-				spnNominal.setVisibility(View.GONE);
 				break;
 			default:
 				break;
