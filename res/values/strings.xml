@@ -18,6 +18,11 @@
     <string name="title_operatorSpinner">Pilih Operator :</string>
     <string name="operatorPrompt">Silakan pilih operator</string>
 
+    <!-- Spinner -->
+    <!-- Server -->
+    <string name="title_serverSpinner">Pilih Server :</string>
+    <string name="serverPrompt">Silakan pilih server</string>
+    
     <!-- Nominal -->
     <string name="title_predefinedInput">Predefined Value</string>
     <string name="title_manualInput">Manual Input</string>
