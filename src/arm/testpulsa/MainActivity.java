@@ -44,7 +44,6 @@ public class MainActivity extends Activity implements TextWatcher {
 	Spinner spnServer;
 	RadioGroup groupRadio;
 	RadioButton rdoPredefined;
-	RadioButton rdoManual;
 	Button btnSendForm;
 
 	private static String userPin;
@@ -237,68 +236,63 @@ public class MainActivity extends Activity implements TextWatcher {
 	// FIXME some problems maybe shown up because of a change in the sendSMS
 	
 	private class SendButtonOnClick implements OnClickListener {
-
-		public void onClick(View v) {
-			String telpNumber, operator = null, value = null;
-			NominalValue nv = (NominalValue) spnNominal.getSelectedItem();
-			telpNumber = txtPhone.getText().toString();
-			/* userPin = txtUserPin.getText().toString(); not used */
-			OperatorOption op = (OperatorOption) spnOperator.getSelectedItem();
-			ServerOption so = (ServerOption) spnServer.getSelectedItem();
-			if (rdoPredefined.isChecked()) {
-				value = String.valueOf(nv.value);
-				operator = String.valueOf(op.kode);
-			} else if (rdoManual.isChecked()) {
-				value = txtNominal.getText().toString();
-			}
-
-			// Send SMS
-			final String smsMessage = String.format("%s%s.%s.%s", operator,
-					value, telpNumber, userPin);
-			final String serverPhone = String.valueOf(so.server);
-			new ConfirmationDialog(MainActivity.this, telpNumber,
-					String.valueOf(op.name), String.valueOf(nv.name),
-					new ConfirmDialogListener() {
-
-						@Override
-						public void onConfirmed() {
-							sendSMS(serverPhone, smsMessage);
-
-							// reset view to default value
-							txtPhone.setText("");
-							if (rdoManual.isChecked()) {
-								txtNominal.setText("");
-							}
-							spnOperator.setSelection(0);
-							spnNominal.setSelection(0);
-
-							// request focus to txtPhone
-							txtPhone.requestFocus();
-						}
-
-						@Override
-						public void onCancel() {
-							// nothing to do here
-						}
-					}).show();
-
-			Log.d(TAG, "onSendButton Clicked, Send SMS will be:\n" + smsMessage);
-		}
-	}
-
-	private class GroupRadioCheckedChange implements OnCheckedChangeListener {
-
-		public void onCheckedChanged(RadioGroup group, int checkedId) {
-			switch (checkedId) {
-			case R.id.radioSpinner:
-				txtNominal.setVisibility(View.GONE);
-				spnNominal.setVisibility(View.VISIBLE);
-				break;
-			default:
-				break;
-			}
-		}
-	}
+		 
+        public void onClick(View v) {
+            String telpNumber, operator = null, value = null;
+            NominalValue nv = (NominalValue) spnNominal.getSelectedItem();
+            telpNumber = txtPhone.getText().toString();
+            /* userPin = txtUserPin.getText().toString(); not used */
+            OperatorOption op = (OperatorOption) spnOperator.getSelectedItem();
+            ServerOption so = (ServerOption) spnServer.getSelectedItem();
+            if (rdoPredefined.isChecked()) {
+                value = String.valueOf(nv.value);
+                operator = String.valueOf(op.kode);
+            }
+            // Send SMS
+            final String smsMessage = String.format("%s%s.%s.%s", operator,
+                    value, telpNumber, userPin);
+            final String serverPhone = String.valueOf(so.server);
+            new ConfirmationDialog(MainActivity.this, telpNumber,
+                    String.valueOf(op.name), String.valueOf(nv.name),
+                    new ConfirmDialogListener() {
+ 
+                        @Override
+                        public void onConfirmed() {
+                            //Toast.makeText(MainActivity.this,serverPhone + smsMessage, 5).show();
+                             sendSMS(serverPhone, smsMessage);
+ 
+                            // reset view to default value
+                            txtPhone.setText("");
+                             
+                            spnOperator.setSelection(0);
+                            spnNominal.setSelection(0);
+ 
+                            // request focus to txtPhone
+                            txtPhone.requestFocus();
+                        }
+ 
+                        @Override
+                        public void onCancel() {
+                            // nothing to do here
+                        }
+                    }).show();
+ 
+            Log.d(TAG, "onSendButton Clicked, Send SMS will be:\n" + smsMessage);
+        }
+    }
+ 
+    private class GroupRadioCheckedChange implements OnCheckedChangeListener {
+ 
+        public void onCheckedChanged(RadioGroup group, int checkedId) {
+            switch (checkedId) {
+            case R.id.radioSpinner:
+                spnNominal.setVisibility(View.VISIBLE);
+                break;
+            default:
+                break;
+            }
+        }
+    }
 
 	/**
 	 * Callback interface for Confirmation Dialog
