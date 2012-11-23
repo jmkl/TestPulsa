@@ -42,5 +42,6 @@
     
     <!-- About -->
 	<string name="title_about">About this application :</string>
+	<string name="content_about">This app created and developed by Android Ranah Minang\'s Developer Team.  Stay connected with us :)</string>
 
 </resources>
