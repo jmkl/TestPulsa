@@ -75,6 +75,32 @@
             android:layout_marginLeft="10sp"
             android:layout_marginRight="10sp"
             android:layout_marginTop="5sp"
+            android:text="@string/title_serverSpinner" />
+
+        <Spinner
+            android:id="@+id/spinnerServer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:prompt="@string/serverPrompt" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.45dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="15dip"
+            android:background="#808080" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="5sp"
             android:text="@string/title_nominalValue" />
 
         <RadioGroup
@@ -91,8 +117,8 @@
                 android:layout_marginLeft="10sp"
                 android:layout_marginRight="10sp"
                 android:layout_marginTop="5sp"
-                android:text="@string/title_predefinedInput" 
-                android:visibility="visible"/>
+                android:text="@string/title_predefinedInput"
+                android:visibility="visible" />
 
             <Spinner
                 android:id="@+id/spinnerNominal"
@@ -102,29 +128,8 @@
                 android:layout_marginLeft="10sp"
                 android:layout_marginRight="10sp"
                 android:prompt="@string/nominalPrompt" />
-
-            <RadioButton
-                android:id="@+id/radioText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:layout_marginTop="5sp"
-                android:text="@string/title_manualInput" />
-
-            <EditText
-                android:id="@+id/textNominalValue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15sp"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:ellipsize="end"
-                android:hint="@string/hint_manualInput"
-                android:inputType="number"
-                android:visibility="gone" />
         </RadioGroup>
-        
+
         <View
             android:layout_width="fill_parent"
             android:layout_height="0.45dip"
