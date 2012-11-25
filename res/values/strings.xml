@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">TestPulsa</string>
@@ -8,7 +9,7 @@
     <string name="title_phoneNumber">Masukkan Nomor Tujuan :</string>
     <string name="hint_phoneNumber">Masukkan nomor tujuan yang valid</string>
     <string name="button_sendForm">Next</string>
-    
+
     <!-- Content Description for Image -->
     <string name="cntDesc_buttonKirim">Kirim Button</string>
     <string name="cntDesc_buttonEdit">Edit Button</string>
@@ -22,7 +23,7 @@
     <!-- Server -->
     <string name="title_serverSpinner">Pilih Server :</string>
     <string name="serverPrompt">Silakan pilih server</string>
-    
+
     <!-- Nominal -->
     <string name="title_predefinedInput">Predefined Value</string>
     <string name="title_manualInput">Manual Input</string>
@@ -44,9 +45,16 @@
     <string name="opt_about">About</string>
     <string name="opt_cekSaldo">Cek Saldo</string>
     <string name="opt_gantiPin">Ganti Pin</string>
-    
-    <!-- About -->
-	<string name="title_about">About this application :</string>
-	<string name="content_about">This app created and developed by Android Ranah Minang\'s Developer Team.  Stay connected with us :)</string>
 
+    <!-- About -->
+    <string name="title_about">About this application :</string>
+    <string name="content_about">This app created and developed by Android Ranah Minang\'s Developer Team.  Stay connected with us :)</string>
+    
+    <!-- Change Pin -->
+    <string name="title_pinOld">PIN Lama :</string>
+	<string name="title_pinNew">PIN Baru :</string>
+    <string name="hint_pinOld">Masukkan PIN lama anda</string>
+    <string name="hint_pinNew">Masukkan PIN baru anda</string>
+    <string name="button_changePin">Ganti</string>
+    
 </resources>
