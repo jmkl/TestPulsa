@@ -30,6 +30,7 @@ import android.widget.Toast;
 import arm.testpulsa.about.AboutApp;
 import arm.testpulsa.dialogs.ConfirmationDialog;
 import arm.testpulsa.dialogs.PinDialog;
+import arm.testpulsa.model.ChangePin;
 import arm.testpulsa.model.NominalValue;
 import arm.testpulsa.model.OperatorOption;
 import arm.testpulsa.model.ServerOption;
@@ -89,6 +90,9 @@ public class MainActivity extends Activity implements TextWatcher {
 		switch (item.getItemId()) {
 		case R.id.opt_about:
 			startActivity(new Intent(MainActivity.this, AboutApp.class));
+			return true;
+		case R.id.opt_gantiPin:
+			startActivity(new Intent(MainActivity.this, ChangePin.class));
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -152,8 +156,8 @@ public class MainActivity extends Activity implements TextWatcher {
 		// spinner server adapter
 		ArrayAdapter<ServerOption> spnServerOptionAdapter = new ArrayAdapter<ServerOption>(
 				this, android.R.layout.simple_spinner_item, new ServerOption[] {
-						new ServerOption(1, "Alpha", "+6287792021743"),
-						new ServerOption(2, "Beta", "+6282389230342") });
+						new ServerOption(1, "Aries", "+6287792021743"),
+						new ServerOption(2, "Aquarius", "+6282389230342") });
 		spnServerOptionAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnServer.setAdapter(spnServerOptionAdapter);
