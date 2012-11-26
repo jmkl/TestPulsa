@@ -26,9 +26,7 @@
 
     <!-- Nominal -->
     <string name="title_predefinedInput">Predefined Value</string>
-    <string name="title_manualInput">Manual Input</string>
     <string name="title_nominalValue">Nominal :</string>
-    <string name="hint_manualInput">Masukkan jumlah</string>
     <string name="nominalPrompt">Silakan pilih nilai nominal</string>
     <string name="hint_userPin">Masukkan kode PIN anda yang valid</string>
     <string name="title_userPin">Masukkan kode PIN anda :</string>
@@ -45,16 +43,24 @@
     <string name="opt_about">About</string>
     <string name="opt_cekSaldo">Cek Saldo</string>
     <string name="opt_gantiPin">Ganti Pin</string>
+    <string name="opt_komplain">Komplain</string>
 
     <!-- About -->
     <string name="title_about">About this application :</string>
     <string name="content_about">This app created and developed by Android Ranah Minang\'s Developer Team.  Stay connected with us :)</string>
-    
+
     <!-- Change Pin -->
     <string name="title_pinOld">PIN Lama :</string>
-	<string name="title_pinNew">PIN Baru :</string>
+    <string name="title_pinNew">PIN Baru :</string>
     <string name="hint_pinOld">Masukkan PIN lama anda</string>
     <string name="hint_pinNew">Masukkan PIN baru anda</string>
     <string name="button_changePin">Ganti</string>
-    
+
+    <!-- Komplain -->
+    <string name="title_komplainNum">Nomor telp :</string>
+    <string name="title_komplainText">Keluhan :</string>
+    <string name="button_komplain">Kirim</string>
+    <string name="hint_komplainNum">Masukkan nomor bermasalah</string>
+    <string name="hint_komplainText">Berita keluhan</string>
+
 </resources>
