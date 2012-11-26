@@ -35,7 +35,7 @@ public class ChangePin extends Activity implements TextWatcher {
 		// set listener
 		txtPinOld.addTextChangedListener(this);
 		txtPinNew.addTextChangedListener(this);
-		btnChangePin.setEnabled(false);
+		btnChangePin.setEnabled(true);
 		btnChangePin.setOnClickListener(new ChangeButtonOnClick());
 
 	}
