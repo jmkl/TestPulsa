@@ -44,7 +44,7 @@
         </receiver>
 
         <activity
-            android:name="arm.testpulsa.ChangePin"
+            android:name="arm.testpulsa.model.ChangePin"
             android:label="@string/title_activity_main" >
         </activity>
     </application>
