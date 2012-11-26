@@ -31,6 +31,8 @@ import arm.testpulsa.about.AboutApp;
 import arm.testpulsa.dialogs.ConfirmationDialog;
 import arm.testpulsa.dialogs.PinDialog;
 import arm.testpulsa.model.ChangePin;
+import arm.testpulsa.model.CheckProvider;
+import arm.testpulsa.model.ComplainActivity;
 import arm.testpulsa.model.NominalValue;
 import arm.testpulsa.model.OperatorOption;
 import arm.testpulsa.model.ServerOption;
@@ -93,6 +95,9 @@ public class MainActivity extends Activity implements TextWatcher {
 			return true;
 		case R.id.opt_gantiPin:
 			startActivity(new Intent(MainActivity.this, ChangePin.class));
+			return true;
+		case R.id.opt_komplain:
+			startActivity(new Intent(MainActivity.this, ComplainActivity.class));
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -238,63 +243,83 @@ public class MainActivity extends Activity implements TextWatcher {
 	}
 
 	private class SendButtonOnClick implements OnClickListener {
-		 
-        public void onClick(View v) {
-            String telpNumber, operator = null, value = null;
-            NominalValue nv = (NominalValue) spnNominal.getSelectedItem();
-            telpNumber = txtPhone.getText().toString();
-            /* userPin = txtUserPin.getText().toString(); not used */
-            OperatorOption op = (OperatorOption) spnOperator.getSelectedItem();
-            ServerOption so = (ServerOption) spnServer.getSelectedItem();
-            if (rdoPredefined.isChecked()) {
-                value = String.valueOf(nv.value);
-                operator = String.valueOf(op.kode);
-            }
-            // Send SMS
-            final String smsMessage = String.format("%s%s.%s.%s", operator,
-                    value, telpNumber, userPin);
-            final String serverPhone = String.valueOf(so.server);
-            new ConfirmationDialog(MainActivity.this, telpNumber,
-                    String.valueOf(op.name), String.valueOf(nv.name),
-                    new ConfirmDialogListener() {
- 
-                        @Override
-                        public void onConfirmed() {
-                            //Toast.makeText(MainActivity.this,serverPhone + smsMessage, 5).show();
-                             sendSMS(serverPhone, smsMessage);
- 
-                            // reset view to default value
-                            txtPhone.setText("");
-                             
-                            spnOperator.setSelection(0);
-                            spnNominal.setSelection(0);
- 
-                            // request focus to txtPhone
-                            txtPhone.requestFocus();
-                        }
- 
-                        @Override
-                        public void onCancel() {
-                            // nothing to do here
-                        }
-                    }).show();
- 
-            Log.d(TAG, "onSendButton Clicked, Send SMS will be:\n" + smsMessage);
-        }
-    }
- 
-    private class GroupRadioCheckedChange implements OnCheckedChangeListener {
- 
-        public void onCheckedChanged(RadioGroup group, int checkedId) {
-            switch (checkedId) {
-            case R.id.radioSpinner:
-                spnNominal.setVisibility(View.VISIBLE);
-                break;
-            default:
-                break;
-            }
-        }
-    }
+
+		public void onClick(View v) {
+			String telpNumber, operator = null, value = null;
+			NominalValue nv = (NominalValue) spnNominal.getSelectedItem();
+			telpNumber = txtPhone.getText().toString();
+			/* userPin = txtUserPin.getText().toString(); not used */
+			OperatorOption op = (OperatorOption) spnOperator.getSelectedItem();
+			ServerOption so = (ServerOption) spnServer.getSelectedItem();
+			if (rdoPredefined.isChecked()) {
+				value = String.valueOf(nv.value);
+				operator = String.valueOf(op.kode);
+			}
+
+			// FIXME TES CHECK OP
+			CheckProvider cek_provider = new CheckProvider();
+			int PROVIDER = cek_provider.ayoCheckProvider(telpNumber);
+			String mPROV;
+
+			if (PROVIDER == 0)
+				mPROV = "TELKOMSEL";
+			else if (PROVIDER == 1)
+				mPROV = "XL";
+			else if (PROVIDER == 2)
+				mPROV = "INDOSAT";
+			else if (PROVIDER == 3)
+				mPROV = "AXIS";
+			else if (PROVIDER == 4)
+				mPROV = "THREE";
+			else
+				mPROV = "au ah gelap";
+			Toast.makeText(MainActivity.this, mPROV, Toast.LENGTH_SHORT).show();
+			// Send SMS
+			final String smsMessage = String.format("%s%s.%s.%s", operator,
+					value, telpNumber, userPin);
+			final String serverPhone = String.valueOf(so.server);
+			new ConfirmationDialog(MainActivity.this, telpNumber,
+					String.valueOf(op.name), String.valueOf(nv.name),
+					new ConfirmDialogListener() {
+
+						@Override
+						public void onConfirmed() {
+							// Toast.makeText(MainActivity.this,serverPhone +
+							// smsMessage, 5).show();
+							sendSMS(serverPhone, smsMessage);
+
+							// reset view to default value
+							txtPhone.setText("");
+
+							spnOperator.setSelection(0);
+							spnNominal.setSelection(0);
+
+							// request focus to txtPhone
+							txtPhone.requestFocus();
+						}
+
+						@Override
+						public void onCancel() {
+							// nothing to do here
+						}
+					});// .show();
+
+			Log.d(TAG, "onSendButton Clicked, Send SMS will be:\n" + smsMessage);
+		}
+	}
+
+	private class GroupRadioCheckedChange implements OnCheckedChangeListener {
+
+		public void onCheckedChanged(RadioGroup group, int checkedId) {
+			switch (checkedId) {
+			case R.id.radioSpinner:
+				spnNominal.setVisibility(View.VISIBLE);
+				break;
+			default:
+				break;
+			}
+		}
+	}
 
 	/**
 	 * Callback interface for Confirmation Dialog
