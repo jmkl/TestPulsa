@@ -14,9 +14,6 @@ import android.telephony.SmsManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -27,12 +24,9 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.Toast;
-import arm.testpulsa.about.AboutApp;
 import arm.testpulsa.dialogs.ConfirmationDialog;
 import arm.testpulsa.dialogs.PinDialog;
-import arm.testpulsa.model.ChangePin;
 import arm.testpulsa.model.CheckProvider;
-import arm.testpulsa.model.ComplainActivity;
 import arm.testpulsa.model.NominalValue;
 import arm.testpulsa.model.OperatorOption;
 import arm.testpulsa.model.ServerOption;
@@ -78,30 +72,6 @@ public class MainActivity extends Activity implements TextWatcher {
 		btnSendForm.setOnClickListener(new SendButtonOnClick());
 		setAdapter();
 		Log.i(TAG, "onCreate");
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.mainmenu, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.opt_about:
-			startActivity(new Intent(MainActivity.this, AboutApp.class));
-			return true;
-		case R.id.opt_gantiPin:
-			startActivity(new Intent(MainActivity.this, ChangePin.class));
-			return true;
-		case R.id.opt_komplain:
-			startActivity(new Intent(MainActivity.this, ComplainActivity.class));
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
 	}
 
 	@Override
