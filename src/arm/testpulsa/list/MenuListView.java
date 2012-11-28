@@ -18,7 +18,7 @@ import arm.testpulsa.menu.ComplainActivity;
 public class MenuListView extends ListActivity {
 
 	static final String[] MENU = new String[] { "Isi Pulsa", "Cek Saldo",
-			"Komplain", "Cek Deposit", "Cek Harga", "Cek Transaksi Hari Ini",
+			"Komplain", "Cek Harga", "Cek Transaksi Hari Ini",
 			"Ganti PIN", "Paralel No HP", "Cek Deposit Downline",
 			"Mendaftarkan Agen", "Hapus Agen", "Menambah Deposit Downline" };
 
@@ -46,7 +46,7 @@ public class MenuListView extends ListActivity {
 			if (position == 2) {
 				startActivity(new Intent(this, ComplainActivity.class));
 			}
-			if (position == 6) {
+			if (position == 5) {
 				startActivity(new Intent(this, ChangePin.class));
 			}
 
