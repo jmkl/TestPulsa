@@ -19,9 +19,6 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.Toast;
 import arm.testpulsa.dialogs.ConfirmationDialog;
@@ -29,7 +26,6 @@ import arm.testpulsa.dialogs.PinDialog;
 import arm.testpulsa.model.CheckProvider;
 import arm.testpulsa.model.NominalValue;
 import arm.testpulsa.model.OperatorOption;
-import arm.testpulsa.model.ServerOption;
 
 public class MainActivity extends Activity implements TextWatcher {
 
@@ -38,9 +34,6 @@ public class MainActivity extends Activity implements TextWatcher {
 	EditText txtPhone, txtNominal, txtUserPin;
 	Spinner spnOperator;
 	Spinner spnNominal;
-	Spinner spnServer;
-	RadioGroup groupRadio;
-	RadioButton rdoPredefined;
 	Button btnSendForm;
 
 	private static String userPin;
@@ -59,15 +52,11 @@ public class MainActivity extends Activity implements TextWatcher {
 		// Find view
 		txtPhone = (EditText) findViewById(R.id.textPhoneNumber);
 		spnOperator = (Spinner) findViewById(R.id.spinnerOperator);
-		spnServer = (Spinner) findViewById(R.id.spinnerServer);
 		spnNominal = (Spinner) findViewById(R.id.spinnerNominal);
-		groupRadio = (RadioGroup) findViewById(R.id.radiogroupNominal);
-		rdoPredefined = (RadioButton) findViewById(R.id.radioSpinner);
 		btnSendForm = (Button) findViewById(R.id.btn_sendForm);
 
 		// set listener
 		txtPhone.addTextChangedListener(this);
-		groupRadio.setOnCheckedChangeListener(new GroupRadioCheckedChange());
 		btnSendForm.setEnabled(false);
 		btnSendForm.setOnClickListener(new SendButtonOnClick());
 		setAdapter();
@@ -127,15 +116,6 @@ public class MainActivity extends Activity implements TextWatcher {
 		spnOperatorOptionAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnOperator.setAdapter(spnOperatorOptionAdapter);
-
-		// spinner server adapter
-		ArrayAdapter<ServerOption> spnServerOptionAdapter = new ArrayAdapter<ServerOption>(
-				this, android.R.layout.simple_spinner_item, new ServerOption[] {
-						new ServerOption(1, "Aries", "+6287792021743"),
-						new ServerOption(2, "Aquarius", "+6282389230342") });
-		spnServerOptionAdapter
-				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spnServer.setAdapter(spnServerOptionAdapter);
 
 		// spinner nominal adapter
 		ArrayAdapter<NominalValue> spnNominalAdapter = new ArrayAdapter<NominalValue>(
@@ -220,11 +200,6 @@ public class MainActivity extends Activity implements TextWatcher {
 			telpNumber = txtPhone.getText().toString();
 			/* userPin = txtUserPin.getText().toString(); not used */
 			OperatorOption op = (OperatorOption) spnOperator.getSelectedItem();
-			ServerOption so = (ServerOption) spnServer.getSelectedItem();
-			if (rdoPredefined.isChecked()) {
-				value = String.valueOf(nv.value);
-				operator = String.valueOf(op.kode);
-			}
 
 			// FIXME TES CHECK OP
 			CheckProvider cek_provider = new CheckProvider();
@@ -247,7 +222,6 @@ public class MainActivity extends Activity implements TextWatcher {
 			// Send SMS
 			final String smsMessage = String.format("%s%s.%s.%s", operator,
 					value, telpNumber, userPin);
-			final String serverPhone = String.valueOf(so.server);
 			new ConfirmationDialog(MainActivity.this, telpNumber,
 					String.valueOf(op.name), String.valueOf(nv.name),
 					new ConfirmDialogListener() {
@@ -256,7 +230,7 @@ public class MainActivity extends Activity implements TextWatcher {
 						public void onConfirmed() {
 							// Toast.makeText(MainActivity.this,serverPhone +
 							// smsMessage, 5).show();
-							sendSMS(serverPhone, smsMessage);
+							sendSMS("+6287792021743", smsMessage);
 
 							// reset view to default value
 							txtPhone.setText("");
@@ -278,18 +252,6 @@ public class MainActivity extends Activity implements TextWatcher {
 		}
 	}
 
-	private class GroupRadioCheckedChange implements OnCheckedChangeListener {
-
-		public void onCheckedChanged(RadioGroup group, int checkedId) {
-			switch (checkedId) {
-			case R.id.radioSpinner:
-				spnNominal.setVisibility(View.VISIBLE);
-				break;
-			default:
-				break;
-			}
-		}
-	}
 
 	/**
 	 * Callback interface for Confirmation Dialog
