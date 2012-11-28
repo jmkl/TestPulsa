@@ -41,9 +41,7 @@
 
     <!-- Menu -->
     <string name="opt_about">About</string>
-    <string name="opt_cekSaldo">Cek Saldo</string>
-    <string name="opt_gantiPin">Ganti Pin</string>
-    <string name="opt_komplain">Komplain</string>
+    <string name="opt_menuList">More</string>
 
     <!-- About -->
     <string name="title_about">About this application :</string>
@@ -62,5 +60,8 @@
     <string name="button_komplain">Kirim</string>
     <string name="hint_komplainNum">Masukkan nomor bermasalah</string>
     <string name="hint_komplainText">Berita keluhan</string>
+    
+    <!-- Menu List View -->
+    <string name="title_activity_menu_list_view">MenuListView</string>
 
 </resources>
