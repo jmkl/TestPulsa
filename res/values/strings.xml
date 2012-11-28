@@ -63,5 +63,10 @@
     
     <!-- Menu List View -->
     <string name="title_activity_menu_list_view">MenuListView</string>
+    
+    <!-- Cek Saldo -->
+    <string name="title_pinSaldo">PIN anda :</string>
+    <string name="hint_cekSaldo">Masukkan PIN anda</string>
+    <string name="button_cekSaldo">Kirim</string>
 
 </resources>
