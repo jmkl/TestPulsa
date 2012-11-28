@@ -11,6 +11,7 @@ import android.widget.ListView;
 import arm.testpulsa.MainActivity;
 import arm.testpulsa.R;
 import arm.testpulsa.about.AboutApp;
+import arm.testpulsa.menu.CekSaldo;
 import arm.testpulsa.menu.ChangePin;
 import arm.testpulsa.menu.ComplainActivity;
 
@@ -38,6 +39,9 @@ public class MenuListView extends ListActivity {
 		{
 			if (position == 0) {
 				startActivity(new Intent(this, MainActivity.class));
+			}
+			if (position == 1) {
+				startActivity(new Intent(this, CekSaldo.class));
 			}
 			if (position == 2) {
 				startActivity(new Intent(this, ComplainActivity.class));
