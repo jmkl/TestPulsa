@@ -1,4 +1,4 @@
-package arm.testpulsa;
+package arm.testpulsa.list;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import arm.testpulsa.R;
 
 public class MenuListAdapter extends ArrayAdapter<String> {
 	private final Context context;

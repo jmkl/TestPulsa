@@ -1,4 +1,4 @@
-package arm.testpulsa;
+package arm.testpulsa.list;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -8,7 +8,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import arm.testpulsa.MainActivity;
+import arm.testpulsa.R;
 import arm.testpulsa.about.AboutApp;
+import arm.testpulsa.model.ChangePin;
+import arm.testpulsa.model.ComplainActivity;
 
 public class MenuListView extends ListActivity {
 
@@ -34,6 +38,12 @@ public class MenuListView extends ListActivity {
 		{
 			if (position == 0) {
 				startActivity(new Intent(this, MainActivity.class));
+			}
+			if (position == 2) {
+				startActivity(new Intent(this, ComplainActivity.class));
+			}
+			if (position == 6) {
+				startActivity(new Intent(this, ChangePin.class));
 			}
 
 		}
