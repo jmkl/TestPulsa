@@ -32,8 +32,7 @@ public class MainActivity extends Activity implements TextWatcher {
 	private static final String TAG = MainActivity.class.getSimpleName();
 
 	EditText txtPhone, txtNominal, txtUserPin;
-	Spinner spnOperator;
-	Spinner spnNominal;
+	Spinner spnOperator, spnNominal;
 	Button btnSendForm;
 
 	private static String userPin;
