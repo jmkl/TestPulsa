@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.text.Editable;
@@ -15,7 +16,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import arm.testpulsa.ArmPulsaAddressMalformedException;
 import arm.testpulsa.R;
+import arm.testpulsa.TextHelper;
 
 public class ChangePin extends Activity implements TextWatcher {
 
@@ -41,8 +44,15 @@ public class ChangePin extends Activity implements TextWatcher {
 	}
 
 	@Override
-	public void afterTextChanged(Editable arg0) {
-		// nothing to do here
+	public void afterTextChanged(Editable s) {
+		try {
+			TextHelper.verifyPinNumber(s);
+			btnChangePin.setEnabled(true);
+			txtPinNew.setTextColor(Color.BLACK);
+		} catch (ArmPulsaAddressMalformedException e) {
+			btnChangePin.setEnabled(false);
+			txtPinNew.setTextColor(Color.RED);
+		}
 
 	}
 
@@ -66,10 +76,10 @@ public class ChangePin extends Activity implements TextWatcher {
 			String pinOld, pinNew;
 			pinOld = txtPinOld.getText().toString();
 			pinNew = txtPinNew.getText().toString();
-			
-			final String smsMessage = String.format("S.%s.%s", pinOld, pinNew );
-			
-				sendSMS("+6287792021743", smsMessage);
+
+			final String smsMessage = String.format("S.%s.%s", pinOld, pinNew);
+
+			sendSMS("+6287792021743", smsMessage);
 		}
 	}
 

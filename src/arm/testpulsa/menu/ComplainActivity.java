@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.text.Editable;
@@ -15,7 +16,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import arm.testpulsa.ArmPulsaAddressMalformedException;
 import arm.testpulsa.R;
+import arm.testpulsa.TextHelper;
 
 public class ComplainActivity extends Activity implements TextWatcher {
 
@@ -42,8 +45,14 @@ public class ComplainActivity extends Activity implements TextWatcher {
 
 	@Override
 	public void afterTextChanged(Editable s) {
-		// TODO Auto-generated method stub
-
+		try {
+			TextHelper.verifyPhoneNumber(s);
+			btnKomplain.setEnabled(true);
+			txtKomplainNum.setTextColor(Color.BLACK);
+		} catch (ArmPulsaAddressMalformedException e) {
+			btnKomplain.setEnabled(false);
+			txtKomplainNum.setTextColor(Color.RED);
+		}
 	}
 
 	@Override
@@ -126,11 +135,12 @@ public class ComplainActivity extends Activity implements TextWatcher {
 			String kompNum, kompText;
 			kompNum = txtKomplainNum.getText().toString();
 			kompText = txtKomplainText.getText().toString();
-			
-			final String smsMessage = String.format("K.%s.%s", kompNum, kompText );
-			
-				sendSMS("+6287792021743", smsMessage);
-			
+
+			final String smsMessage = String.format("K.%s.%s", kompNum,
+					kompText);
+
+			sendSMS("+6287792021743", smsMessage);
+
 		}
 
 	}
