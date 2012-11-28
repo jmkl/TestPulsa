@@ -67,7 +67,7 @@ public class ChangePin extends Activity implements TextWatcher {
 			pinOld = txtPinOld.getText().toString();
 			pinNew = txtPinNew.getText().toString();
 			
-			final String smsMessage = String.format("s.%s.%s", pinOld, pinNew );
+			final String smsMessage = String.format("S.%s.%s", pinOld, pinNew );
 			
 				sendSMS("+6287792021743", smsMessage);
 		}

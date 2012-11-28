@@ -127,7 +127,7 @@ public class ComplainActivity extends Activity implements TextWatcher {
 			kompNum = txtKomplainNum.getText().toString();
 			kompText = txtKomplainText.getText().toString();
 			
-			final String smsMessage = String.format("k.%s.%s", kompNum, kompText );
+			final String smsMessage = String.format("K.%s.%s", kompNum, kompText );
 			
 				sendSMS("+6287792021743", smsMessage);
 			
