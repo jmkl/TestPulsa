@@ -11,8 +11,8 @@ import android.widget.ListView;
 import arm.testpulsa.MainActivity;
 import arm.testpulsa.R;
 import arm.testpulsa.about.AboutApp;
-import arm.testpulsa.model.ChangePin;
-import arm.testpulsa.model.ComplainActivity;
+import arm.testpulsa.menu.ChangePin;
+import arm.testpulsa.menu.ComplainActivity;
 
 public class MenuListView extends ListActivity {
 

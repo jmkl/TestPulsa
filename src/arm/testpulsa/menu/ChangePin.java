@@ -1,4 +1,4 @@
-package arm.testpulsa.model;
+package arm.testpulsa.menu;
 
 import android.app.Activity;
 import android.app.PendingIntent;
