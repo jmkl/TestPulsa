@@ -1,6 +1,8 @@
 package arm.testpulsa.ui;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,10 +15,16 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import arm.testpulsa.R;
 import arm.testpulsa.model.HargaOperator;
+import arm.testpulsa.receiver.DeliveryReceiver;
+import arm.testpulsa.receiver.SentReceiver;
 import arm.testpulsa.utils.ArmHelpers;
 import arm.testpulsa.utils.ArmPulsaAddressMalformedException;
 
 public class CekHarga extends Activity implements TextWatcher {
+	public static final String SMS_SENT = "SMS_SENT";
+	public static final String SMS_DELIVERED = "SMS_DELIVERED";
+	private final BroadcastReceiver sentReceiver = new SentReceiver();
+	private final BroadcastReceiver deliveryReceiver = new DeliveryReceiver();
 
 	Spinner spnHarga;
 	EditText txtPinHarga;
@@ -39,6 +47,21 @@ public class CekHarga extends Activity implements TextWatcher {
 		btnCekHarga.setOnClickListener(new HargaButtonOnclick());
 
 	}
+
+	@Override
+	protected void onPause() {
+		unregisterReceiver(sentReceiver);
+		unregisterReceiver(deliveryReceiver);
+		super.onPause();
+	}
+
+	@Override
+	protected void onResume() {
+		registerReceiver(sentReceiver, new IntentFilter(SMS_SENT));
+		registerReceiver(deliveryReceiver, new IntentFilter(SMS_DELIVERED));
+		super.onResume();
+	}
+
 
 	@Override
 	public void afterTextChanged(Editable s) {
