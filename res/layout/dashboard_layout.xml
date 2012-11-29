@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Your package folder -->
+<arm.testpulsa.AppDashboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1"
+    android:background="@drawable/tile_background_dark" >
+
+    <!-- Send SMS Button -->
+
+    <Button
+        android:id="@+id/btn_sendSMS"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/ic_dashboard_sms"
+        android:text="@string/dashboard_sendSms" />
+
+    <!-- Report Button -->
+
+    <Button
+        android:id="@+id/btn_report"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/ic_dashboard_report"
+        android:text="@string/dashboard_repordCard" />
+
+    <!-- Settings Button -->
+
+    <Button
+        android:id="@+id/btn_settings"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/ic_dashboard_settings"
+        android:text="@string/dashboard_settings" />
+
+    <!-- About Button -->
+
+    <Button
+        android:id="@+id/btn_about"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/ic_dashboard_about"
+        android:text="@string/dashboard_about" />
+
+</arm.testpulsa.AppDashboard>

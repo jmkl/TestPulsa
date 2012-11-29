@@ -16,8 +16,10 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="arm.testpulsa.list.MenuListView"
-            android:label="@string/title_activity_menu_list_view" >
+            android:name=".MainScreen"
+            android:label="@string/title_activity_appDashboard" >"
+            <!-- android:name="arm.testpulsa.list.MenuListView"
+            android:label="@string/title_activity_menu_list_view" -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
