@@ -18,8 +18,6 @@
         <activity
             android:name=".MainScreen"
             android:label="@string/title_activity_appDashboard" >"
-            <!-- android:name="arm.testpulsa.list.MenuListView"
-            android:label="@string/title_activity_menu_list_view" -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -60,6 +58,9 @@
         <activity
             android:name="arm.testpulsa.menu.CekSaldo"
             android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".Preferences">
         </activity>
     </application>
 
