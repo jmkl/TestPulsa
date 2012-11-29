@@ -92,4 +92,11 @@
     <string name="title_cekTrans">PIN anda :</string>
     <string name="hint_cekTrans">Masukkan PIN anda</string>
     <string name="button_cekTrans">Kirim</string>
+    
+    <!-- Paralel NO HP -->
+    <string name="title_parNumber">Masukkan Nomor Tujuan :</string>
+    <string name="hint_parNumber">Masukkan nomor tujuan yang valid</string>
+    <string name="title_pinParalel">PIN anda :</string>
+    <string name="hint_pinParalel">Masukkan PIN anda</string>
+    <string name="button_sendPar">Kirim</string>
 </resources>
