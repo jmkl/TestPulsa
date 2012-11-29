@@ -72,6 +72,8 @@ public class MainActivity extends Activity implements TextWatcher {
 			btnSendForm.setEnabled(false);
 			txtPhone.setTextColor(Color.RED);
 		}
+		int spnOpNewIndex = TextHelper.phoneNumberMatcher(s);
+		spnOperator.setSelection(spnOpNewIndex);
 	}
 
 	@Override
