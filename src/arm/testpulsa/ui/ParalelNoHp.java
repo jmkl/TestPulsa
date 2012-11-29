@@ -29,18 +29,18 @@ public class ParalelNoHp extends Activity implements TextWatcher {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.change_pin);
+		setContentView(R.layout.paralel_hp);
 
 		// find view
-		txtParNum = (EditText) findViewById(R.id.textPinOld);
-		txtPinPar = (EditText) findViewById(R.id.textPinNew);
+		txtParNum = (EditText) findViewById(R.id.text_parNumber);
+		txtPinPar = (EditText) findViewById(R.id.text_parPin);
 		btnSendPar = (Button) findViewById(R.id.btn_sendPar);
 
 		// set listener
 		txtParNum.addTextChangedListener(this);
 		txtPinPar.addTextChangedListener(this);
 		btnSendPar.setEnabled(true);
-		btnSendPar.setOnClickListener(new ChangeButtonOnClick());
+		btnSendPar.setOnClickListener(new ParalelButtonOnClick());
 
 	}
 
@@ -84,7 +84,7 @@ public class ParalelNoHp extends Activity implements TextWatcher {
 
 	}
 
-	private class ChangeButtonOnClick implements OnClickListener {
+	private class ParalelButtonOnClick implements OnClickListener {
 
 		@Override
 		public void onClick(View v) {
