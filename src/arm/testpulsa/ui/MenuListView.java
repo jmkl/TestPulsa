@@ -51,6 +51,12 @@ public class MenuListView extends ListActivity {
 			if (position == 5) {
 				startActivity(new Intent(this, ChangePin.class));
 			}
+			if (position == 6) {
+				startActivity(new Intent(this, ParalelNoHp.class));
+			}
+			if (position == 7) {
+				startActivity(new Intent(this, CekDownlineDeposit.class));
+			}
 
 		}
 
