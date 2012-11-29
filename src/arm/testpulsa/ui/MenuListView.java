@@ -42,6 +42,12 @@ public class MenuListView extends ListActivity {
 			if (position == 2) {
 				startActivity(new Intent(this, ComplainActivity.class));
 			}
+			if (position == 3) {
+				startActivity(new Intent(this, CekHarga.class));
+			}
+			if (position == 4) {
+				startActivity(new Intent(this, CekTransaksi.class));
+			}
 			if (position == 5) {
 				startActivity(new Intent(this, ChangePin.class));
 			}
