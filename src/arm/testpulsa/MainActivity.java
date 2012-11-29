@@ -94,7 +94,7 @@ public class MainActivity extends Activity implements TextWatcher {
 	}
 
 	private void setAdapter() {
-		// spinner nominal adapter
+		// spinner operator adapter
 		ArrayAdapter<OperatorOption> spnOperatorOptionAdapter = new ArrayAdapter<OperatorOption>(
 				this, android.R.layout.simple_spinner_item,
 				new OperatorOption[] { new OperatorOption(1, "Telkomsel", "S"),
@@ -252,7 +252,6 @@ public class MainActivity extends Activity implements TextWatcher {
 			Log.d(TAG, "onSendButton Clicked, Send SMS will be:\n" + smsMessage);
 		}
 	}
-
 
 	/**
 	 * Callback interface for Confirmation Dialog
