@@ -53,7 +53,8 @@ public class MainScreen extends Activity implements OnClickListener {
 			getToast();
 			break;
 		case R.id.btn_settings:
-			getToast();
+			Intent settings = new Intent(getApplicationContext(), Preferences.class);
+			startActivity(settings);
 			break;
 		default:
 			break;
