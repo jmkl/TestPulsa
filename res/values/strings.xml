@@ -99,4 +99,11 @@
     <string name="title_pinParalel">PIN anda :</string>
     <string name="hint_pinParalel">Masukkan PIN anda</string>
     <string name="button_sendPar">Kirim</string>
+    
+    <!-- Cek Downline Deposit -->
+    <string name="title_downDepositNum">Masukkan Nomor Downline :</string>
+    <string name="hint_downDepositNum">Masukkan nomor downline yang valid</string>
+    <string name="title_downPin">PIN anda :</string>
+    <string name="hint_downPin">Masukkan PIN anda</string>
+    <string name="button_sendDownDeposit">Kirim</string>
 </resources>
