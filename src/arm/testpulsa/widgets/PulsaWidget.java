@@ -4,7 +4,7 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
-import arm.testpulsa.ui.MainActivity;
+import arm.testpulsa.MainActivity;
 
 //FIXME something must be wrong here
 public class PulsaWidget extends AppWidgetProvider{
