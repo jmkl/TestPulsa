@@ -15,6 +15,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
+            
+             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="5sp"
+                android:text="@string/title_operatorHarga" />
+
+            <Spinner
+                android:id="@+id/spinnerHarga"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:prompt="@string/hargaPrompt" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.45dip"
+                android:layout_marginBottom="5dip"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="15dip"
+                android:background="#808080" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -22,36 +48,17 @@
                 android:layout_marginLeft="10sp"
                 android:layout_marginRight="10sp"
                 android:layout_marginTop="5sp"
-                android:text="@string/title_pinOld" />
+                android:text="@string/title_pinHarga" />
 
             <EditText
-                android:id="@+id/textPinOld"
+                android:id="@+id/textPinHarga"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15sp"
                 android:layout_marginLeft="10sp"
                 android:layout_marginRight="10sp"
                 android:ellipsize="end"
-                android:hint="@string/hint_pinOld"
-                android:inputType="numberPassword" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:layout_marginTop="5sp"
-                android:text="@string/title_pinNew" />
-
-            <EditText
-                android:id="@+id/textPinNew"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15sp"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:ellipsize="end"
-                android:hint="@string/hint_pinNew"
+                android:hint="@string/hint_pinHarga"
                 android:inputType="numberPassword" />
         </LinearLayout>
     </ScrollView>
@@ -65,7 +72,7 @@
         android:orientation="vertical" >
 
         <Button
-            android:id="@+id/btn_changePin"
+            android:id="@+id/btn_cekHarga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -74,7 +81,7 @@
             android:layout_marginRight="10sp"
             android:layout_marginTop="15dip"
             android:background="@drawable/next_btn"
-            android:text="@string/button_changePin" />
+            android:text="@string/button_cekHarga" />
     </LinearLayout>
 
 </RelativeLayout>
