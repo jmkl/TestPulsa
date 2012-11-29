@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_weight="1"
-    android:background="@drawable/subtle_background" >
+    android:background="@drawable/tile_background_dark" >
 
     <!-- Send SMS Button -->
 
