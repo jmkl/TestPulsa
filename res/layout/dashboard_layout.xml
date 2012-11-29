@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Your package folder -->
-<arm.testpulsa.AppDashboard xmlns:android="http://schemas.android.com/apk/res/android"
+<arm.testpulsa.utils.AppDashboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_weight="1"
@@ -38,4 +38,4 @@
         android:drawableTop="@drawable/ic_dashboard_about"
         android:text="@string/dashboard_about" />
 
-</arm.testpulsa.AppDashboard>
+</arm.testpulsa.utils.AppDashboard>
