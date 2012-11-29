@@ -41,13 +41,11 @@ public class MenuListAdapter extends ArrayAdapter<String> {
 			imageView.setImageResource(R.drawable.logoarm);
 		} else if (s.equals("Cek Deposit")) {
 			imageView.setImageResource(R.drawable.logoarm);
-		} else if (s.equals("Deposit")) {
-			imageView.setImageResource(R.drawable.logoarm);
 		} else if (s.equals("Cek Harga")) {
 			imageView.setImageResource(R.drawable.logoarm);
 		} else if (s.equals("Cek Transaksi Hari Ini")) {
 			imageView.setImageResource(R.drawable.logoarm);
-		} else if (s.equals("Ganiti PIN")) {
+		} else if (s.equals("Ganti PIN")) {
 			imageView.setImageResource(R.drawable.logoarm);
 		} else if (s.equals("Paralel No HP")) {
 			imageView.setImageResource(R.drawable.logoarm);
