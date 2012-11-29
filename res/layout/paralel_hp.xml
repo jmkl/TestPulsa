@@ -40,7 +40,7 @@
         android:text="@string/title_pinParalel" />
 
     <EditText
-        android:id="@+id/textPinSaldo"
+        android:id="@+id/text_parPin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15sp"
