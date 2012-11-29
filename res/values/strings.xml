@@ -80,4 +80,11 @@
     <string name="title_prefsButtonCancelUserPin">Batal</string>
     <string name="title_prefsUserPin">PIN</string>
     <string name="summary_prefsUserPin">Ubah atau hapus PIN</string>
+    
+    <!-- Cek Harga -->
+    <string name="title_operatorHarga">Pilih Operator :</string>
+    <string name="hargaPrompt">Silakan pilih operator</string>
+    <string name="title_pinHarga">PIN anda :</string>
+    <string name="hint_pinHarga">Masukkan PIN anda</string>
+    <string name="button_cekHarga">Kirim</string>
 </resources>
