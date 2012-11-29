@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import arm.testpulsa.ui.MainScreen;
 
 // splash screen thread
 public class SplashScreen extends Activity {
@@ -19,7 +20,7 @@ public class SplashScreen extends Activity {
 	        public void run() {
 
 	            Intent mainIntent = new Intent(SplashScreen.this,
-	                    MainActivity.class);
+	                    MainScreen.class);
 	            SplashScreen.this.startActivity(mainIntent);
 
 	            SplashScreen.this.finish();
