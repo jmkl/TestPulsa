@@ -34,19 +34,6 @@
             android:name="arm.testpulsa.about.AboutApp"
             android:label="@string/title_activity_main" >
         </activity>
-
-        <receiver
-            android:name="arm.testpulsa.widgets.PulsaWidget"
-            android:label="@string/title_activity_main" >
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widget_config" />
-        </receiver>
-
         <activity
             android:name="arm.testpulsa.menu.ChangePin"
             android:label="@string/title_activity_main" >
@@ -59,6 +46,18 @@
             android:name="arm.testpulsa.menu.CekSaldo"
             android:label="@string/title_activity_main" >
         </activity>
+
+        <receiver
+            android:name="arm.testpulsa.widgets.PulsaWidget"
+            android:label="@string/title_activity_main" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_config" />
+        </receiver>
     </application>
 
 </manifest>
