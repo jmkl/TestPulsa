@@ -25,7 +25,7 @@ public class PinDialog extends AlertDialog implements
 
 		LayoutInflater inflater = (LayoutInflater) mainScreen
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View group = inflater.inflate(R.layout.pin_dialog, null, false);
+		View group = inflater.inflate(R.layout.dialog_pin, null, false);
 		setView(group);
 		
 		setButton(BUTTON_POSITIVE, mainScreen.getString(android.R.string.ok), this);

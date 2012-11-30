@@ -29,7 +29,7 @@ public class ConfirmationDialog extends Dialog implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.confirmation_dialog);
+		setContentView(R.layout.dialog_confirmation);
 		setTitle(R.string.confirmation_info);
 		// find view
 		TextView txtPhone = (TextView) findViewById(R.id.conf_textPhoneNumber);
