@@ -21,10 +21,6 @@ public class MenuListView extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		// setListAdapter(new ArrayAdapter<String>(this, R.layout.list_mobile,
-		// R.id.label, MOBILE_OS));
-
 		setListAdapter(new MenuListAdapter(this, MENU));
 
 	}
@@ -57,6 +53,10 @@ public class MenuListView extends ListActivity {
 			if (position == 7) {
 				startActivity(new Intent(this, CekDownlineDeposit.class));
 			}
+			if (position == 9) {
+				startActivity(new Intent(this, HapusAgen.class));
+			}
+			
 
 		}
 
