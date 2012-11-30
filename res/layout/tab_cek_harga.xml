@@ -33,15 +33,6 @@
                 android:layout_marginRight="10sp"
                 android:prompt="@string/hargaPrompt" />
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0.45dip"
-                android:layout_marginBottom="5dip"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:layout_marginTop="15dip"
-                android:background="#808080" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
