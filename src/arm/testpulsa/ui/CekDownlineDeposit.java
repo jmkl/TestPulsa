@@ -61,12 +61,12 @@ public class CekDownlineDeposit extends Activity implements TextWatcher {
 	@Override
 	public void afterTextChanged(Editable s) {
 		try {
-			ArmHelpers.verifyPinNumber(s);
+			ArmHelpers.verifyPhoneNumber(s);
 			btnSenDownPin.setEnabled(true);
-			txtDownDepPin.setTextColor(Color.BLACK);
+			txtDownDepNum.setTextColor(Color.BLACK);
 		} catch (ArmPulsaAddressMalformedException e) {
 			btnSenDownPin.setEnabled(false);
-			txtDownDepPin.setTextColor(Color.RED);
+			txtDownDepNum.setTextColor(Color.RED);
 		}
 
 	}
