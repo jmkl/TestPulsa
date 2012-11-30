@@ -28,8 +28,11 @@
     <string name="title_predefinedInput">Predefined Value</string>
     <string name="title_nominalValue">Nominal :</string>
     <string name="nominalPrompt">Silakan pilih nilai nominal</string>
-    <string name="hint_userPin">Masukkan kode PIN anda yang valid</string>
-    <string name="title_userPin">Masukkan kode PIN anda :</string>
+    
+    <!-- Pin Dialog -->
+    <string name="hint_userPin">Masukkan kode PIN anda</string>
+    <string name="title_userPin">Masukkan kode PIN anda:</string>
+    <string name="title_pinWarning">Note: Kode PIN akan terhapus ketika applikasi ditutup</string>
 
     <!-- Confirmation Dialog -->
     <string name="confirmation_info">Konfirmasi Data</string>
@@ -87,4 +90,11 @@
     <string name="title_pinHarga">PIN anda :</string>
     <string name="hint_pinHarga">Masukkan PIN anda</string>
     <string name="button_cekHarga">Kirim</string>
+    
+    <!-- Fragment Panel -->
+    <string name="panel_cekSaldo">Cek Saldo</string>
+    <string name="panel_cekHarga">Cek Harga</string>
+    <string name="panel_changePin">Ganti PIN</string>
+    <string name="panel_complain">Komplain</string>
+    
 </resources>
