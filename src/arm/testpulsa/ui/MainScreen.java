@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Toast;
 import arm.testpulsa.Preferences;
 import arm.testpulsa.R;
 import arm.testpulsa.ui.dialogs.PinDialog;
@@ -56,7 +55,6 @@ public class MainScreen extends Activity implements OnClickListener {
 	}
 
 	private void clearUserPinPreference() {
-		
 		Editor edit = prefs.edit();
 		edit.putString("pin", "");
 		edit.commit();
@@ -67,12 +65,7 @@ public class MainScreen extends Activity implements OnClickListener {
 			new PinDialog(this).show();
 		}
 	}
-
-	private void getToast() {
-		Toast.makeText(MainScreen.this, "Alun ado lei ndan!",
-				Toast.LENGTH_SHORT).show();
-	}
-
+	
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
@@ -85,7 +78,8 @@ public class MainScreen extends Activity implements OnClickListener {
 			startActivity(about);
 			break;
 		case R.id.btn_report:
-			getToast();
+			Intent user = new Intent(getApplicationContext(), UserActivity.class);
+			startActivity(user);
 			break;
 		case R.id.btn_settings:
 			Intent settings = new Intent(getApplicationContext(),
