@@ -61,12 +61,12 @@ public class ParalelNoHp extends Activity implements TextWatcher {
 	@Override
 	public void afterTextChanged(Editable s) {
 		try {
-			ArmHelpers.verifyPinNumber(s);
+			ArmHelpers.verifyPhoneNumber(s);
 			btnSendPar.setEnabled(true);
-			txtPinPar.setTextColor(Color.BLACK);
+			txtParNum.setTextColor(Color.BLACK);
 		} catch (ArmPulsaAddressMalformedException e) {
 			btnSendPar.setEnabled(false);
-			txtPinPar.setTextColor(Color.RED);
+			txtParNum.setTextColor(Color.RED);
 		}
 
 	}
