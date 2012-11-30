@@ -59,7 +59,7 @@
     <string name="title_komplainText">Keluhan :</string>
     <string name="button_komplain">Kirim</string>
     <string name="hint_komplainNum">Masukkan nomor bermasalah</string>
-    <string name="hint_komplainText">Berita keluhan</string>
+    <string name="hint_komplainText">Isi</string>
 
     <!-- Menu List View -->
     <string name="title_activity_menu_list_view">MenuListView</string>
@@ -82,7 +82,7 @@
     <string name="summary_prefsUserPin">Ubah atau hapus PIN</string>
     
     <!-- Cek Harga -->
-    <string name="title_operatorHarga">Pilih Operator :</string>
+    <string name="title_operatorHarga">Pilih operator :</string>
     <string name="hargaPrompt">Silakan pilih operator</string>
     <string name="title_pinHarga">PIN anda :</string>
     <string name="hint_pinHarga">Masukkan PIN anda</string>
@@ -94,16 +94,23 @@
     <string name="button_cekTrans">Kirim</string>
     
     <!-- Paralel NO HP -->
-    <string name="title_parNumber">Masukkan Nomor Tujuan :</string>
+    <string name="title_parNumber">Masukkan nomor tujuan :</string>
     <string name="hint_parNumber">Masukkan nomor tujuan yang valid</string>
     <string name="title_pinParalel">PIN anda :</string>
     <string name="hint_pinParalel">Masukkan PIN anda</string>
     <string name="button_sendPar">Kirim</string>
     
     <!-- Cek Downline Deposit -->
-    <string name="title_downDepositNum">Masukkan Nomor Downline :</string>
+    <string name="title_downDepositNum">Masukkan nomor downline :</string>
     <string name="hint_downDepositNum">Masukkan nomor downline yang valid</string>
     <string name="title_downPin">PIN anda :</string>
     <string name="hint_downPin">Masukkan PIN anda</string>
     <string name="button_sendDownDeposit">Kirim</string>
+    
+    <!-- Hapus Agen -->
+    <string name="title_hapusAgenNum">Masukkan nomor downline yang akan dihapus :</string>
+    <string name="hint_hapusAgenNum">Masukkan nomor downline yang valid</string>
+    <string name="title_hapusAgenPin">PIN anda :</string>
+    <string name="hint_hapusAgenPin">Masukkan PIN anda</string>
+    <string name="button_hapusAgen">Kirim</string>
 </resources>
