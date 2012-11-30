@@ -20,7 +20,7 @@
         android:id="@+id/btn_report"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/ic_dashboard_report"
-        android:text="@string/dashboard_repordCard" />
+        android:text="@string/dashboard_userPanel" />
 
     <!-- Settings Button -->
 
