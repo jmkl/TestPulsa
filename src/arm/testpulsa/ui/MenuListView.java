@@ -56,6 +56,9 @@ public class MenuListView extends ListActivity {
 			if (position == 9) {
 				startActivity(new Intent(this, HapusAgen.class));
 			}
+			if (position == 10) {
+				startActivity(new Intent(this, TmbhDepositDownline.class));
+			}
 			
 
 		}

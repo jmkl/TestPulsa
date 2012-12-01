@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Toast;
 import arm.testpulsa.Preferences;
 import arm.testpulsa.R;
 import arm.testpulsa.ui.dialogs.PinDialog;
@@ -24,10 +23,9 @@ public class MainScreen extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.dashboard_layout);
-		
-		prefs = PreferenceManager
-				.getDefaultSharedPreferences(this);
-		
+
+		prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
 		// find view
 		btnSMS = (Button) findViewById(R.id.btn_sendSMS);
 		btnReport = (Button) findViewById(R.id.btn_report);
@@ -56,7 +54,7 @@ public class MainScreen extends Activity implements OnClickListener {
 	}
 
 	private void clearUserPinPreference() {
-		
+
 		Editor edit = prefs.edit();
 		edit.putString("pin", "");
 		edit.commit();
@@ -66,11 +64,6 @@ public class MainScreen extends Activity implements OnClickListener {
 		if (pin.length() < 4) {
 			new PinDialog(this).show();
 		}
-	}
-
-	private void getToast() {
-		Toast.makeText(MainScreen.this, "Alun ado lei ndan!",
-				Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
@@ -85,7 +78,9 @@ public class MainScreen extends Activity implements OnClickListener {
 			startActivity(about);
 			break;
 		case R.id.btn_report:
-			getToast();
+			Intent panel = new Intent(getApplicationContext(),
+					MenuListView.class);
+			startActivity(panel);
 			break;
 		case R.id.btn_settings:
 			Intent settings = new Intent(getApplicationContext(),

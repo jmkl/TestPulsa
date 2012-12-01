@@ -113,4 +113,14 @@
     <string name="title_hapusAgenPin">PIN anda :</string>
     <string name="hint_hapusAgenPin">Masukkan PIN anda</string>
     <string name="button_hapusAgen">Kirim</string>
+    
+    <!-- Tambah Deposit Downline -->
+    <string name="title_tmbhDpstNum">Masukkan nomor downline :</string>
+    <string name="hint_tmbhDpstNum">Masukkan nomor downline yang valid</string>
+    <string name="title_tmbhDpstDwn">Masukkan nominal (min 10.000) :</string>
+    <string name="hint_tmbhDpstDwn">Masukkan nominal</string>
+    <string name="title_tmbhDpstPin">PIN anda :</string>
+    <string name="hint_tmbhDpstPin">Masukkan PIN anda</string>
+    <string name="button_tmbhDpstDwn">Kirim</string>
+    
 </resources>
