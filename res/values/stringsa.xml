@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TestPulsa</string>
+
+    <!-- Main Activity -->
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_creditBalanceForm">Mobile Credit Balance Form</string>
+    <string name="title_phoneNumber">Masukkan Nomor Tujuan :</string>
+    <string name="hint_phoneNumber">Masukkan nomor tujuan yang valid</string>
+    <string name="button_sendForm">Next</string>
+
+    <!-- Content Description for Image -->
+    <string name="cntDesc_buttonKirim">Kirim Button</string>
+    <string name="cntDesc_buttonEdit">Edit Button</string>
+
+    <!-- Spinner -->
+    <!-- Operator -->
+    <string name="title_operatorSpinner">Pilih Operator :</string>
+    <string name="operatorPrompt">Silakan pilih operator</string>
+
+    <!-- Spinner -->
+    <!-- Server -->
+    <string name="title_serverSpinner">Pilih Server :</string>
+    <string name="serverPrompt">Silakan pilih server</string>
+
+    <!-- Nominal -->
+    <string name="title_predefinedInput">Predefined Value</string>
+    <string name="title_nominalValue">Nominal :</string>
+    <string name="nominalPrompt">Silakan pilih nilai nominal</string>
+    <string name="hint_userPin">Masukkan kode PIN anda yang valid</string>
+    <string name="title_userPin">Masukkan kode PIN anda :</string>
+
+    <!-- Confirmation Dialog -->
+    <string name="confirmation_info">Konfirmasi Data</string>
+    <string name="conf_titleTelp">Nomer Telepon</string>
+    <string name="conf_titleOperator">Operator</string>
+    <string name="conf_titleNominal">Nominal</string>
+    <string name="conf_buttonEdit">Edit</string>
+    <string name="conf_buttonConfirm">Kirim</string>
+
+    <!-- Menu -->
+    <string name="opt_about">About</string>
+    <string name="opt_menuList">More</string>
+
+    <!-- About -->
+    <string name="title_about">About this application :</string>
+    <string name="content_about">This app created and developed by Android Ranah Minang\'s Developer Team.  Stay connected with us :)</string>
+
+    <!-- Change Pin -->
+    <string name="title_pinOld">PIN Lama :</string>
+    <string name="title_pinNew">PIN Baru :</string>
+    <string name="hint_pinOld">Masukkan PIN lama anda</string>
+    <string name="hint_pinNew">Masukkan PIN baru anda</string>
+    <string name="button_changePin">Ganti</string>
+
+    <!-- Komplain -->
+    <string name="title_komplainNum">Nomor telp :</string>
+    <string name="title_komplainText">Keluhan :</string>
+    <string name="button_komplain">Kirim</string>
+    <string name="hint_komplainNum">Masukkan nomor bermasalah</string>
+    <string name="hint_komplainText">Isi</string>
+
+    <!-- Menu List View -->
+    <string name="title_activity_menu_list_view">MenuListView</string>
+
+    <!-- Cek Saldo -->
+    <string name="title_pinSaldo">PIN anda :</string>
+    <string name="hint_cekSaldo">Masukkan PIN anda</string>
+    <string name="button_cekSaldo">Kirim</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_sendSms">Kirim SMS</string>
+    <string name="dashboard_repordCard">Report</string>
+    <string name="dashboard_settings">Settings</string>
+    <string name="dashboard_about">About</string>
+    <string name="title_activity_appDashboard">Dashboard</string>
+    <string name="title_prefsDialogPin">Ubah PIN</string>
+    <string name="title_prefsButtonOKUserPin">Ubah</string>
+    <string name="title_prefsButtonCancelUserPin">Batal</string>
+    <string name="title_prefsUserPin">PIN</string>
+    <string name="summary_prefsUserPin">Ubah atau hapus PIN</string>
+
+    <!-- Cek Harga -->
+    <string name="title_operatorHarga">Pilih operator :</string>
+    <string name="hargaPrompt">Silakan pilih operator</string>
+    <string name="title_pinHarga">PIN anda :</string>
+    <string name="hint_pinHarga">Masukkan PIN anda</string>
+    <string name="button_cekHarga">Kirim</string>
+
+    <!-- Cek Transaksi -->
+    <string name="title_cekTrans">PIN anda :</string>
+    <string name="hint_cekTrans">Masukkan PIN anda</string>
+    <string name="button_cekTrans">Kirim</string>
+
+    <!-- Paralel NO HP -->
+    <string name="title_parNumber">Masukkan nomor tujuan :</string>
+    <string name="hint_parNumber">Masukkan nomor tujuan yang valid</string>
+    <string name="title_pinParalel">PIN anda :</string>
+    <string name="hint_pinParalel">Masukkan PIN anda</string>
+    <string name="button_sendPar">Kirim</string>
+
+    <!-- Cek Downline Deposit -->
+    <string name="title_downDepositNum">Masukkan nomor downline :</string>
+    <string name="hint_downDepositNum">Masukkan nomor downline yang valid</string>
+    <string name="title_downPin">PIN anda :</string>
+    <string name="hint_downPin">Masukkan PIN anda</string>
+    <string name="button_sendDownDeposit">Kirim</string>
+
+    <!-- Hapus Agen -->
+    <string name="title_hapusAgenNum">Masukkan nomor downline yang akan dihapus :</string>
+    <string name="hint_hapusAgenNum">Masukkan nomor downline yang valid</string>
+    <string name="title_hapusAgenPin">PIN anda :</string>
+    <string name="hint_hapusAgenPin">Masukkan PIN anda</string>
+    <string name="button_hapusAgen">Kirim</string>
+
+    <!-- Tambah Deposit Downline -->
+    <string name="title_tmbhDpstNum">Masukkan nomor downline :</string>
+    <string name="hint_tmbhDpstNum">Masukkan nomor downline yang valid</string>
+    <string name="title_tmbhDpstDwn">Masukkan nominal (min 10.000) :</string>
+    <string name="hint_tmbhDpstDwn">Masukkan nominal</string>
+    <string name="title_tmbhDpstPin">PIN anda :</string>
+    <string name="hint_tmbhDpstPin">Masukkan PIN anda</string>
+    <string name="button_tmbhDpstDwn">Kirim</string>
+
+    <!-- Cari Kode Kecamatan -->
+    <string name="title_cariKodeKec">Masukkan nama kecamatan :</string>
+    <string name="hint_cariKodeKec">Masukkan nama kecamatan yang benar</string>
+    <string name="title_cariKodePin">PIN anda :</string>
+    <string name="hint_cariKodePin">Masukkan PIN anda</string>
+    <string name="button_cariKodeKec">Kirim</string>
+
+</resources>

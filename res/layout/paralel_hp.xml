@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="5sp"
+        android:text="@string/title_parNumber" />
+
+    <EditText
+        android:id="@+id/text_parNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:ellipsize="end"
+        android:hint="@string/hint_parNumber"
+        android:inputType="phone" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.45dip"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:background="#808080" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="5sp"
+        android:text="@string/title_pinParalel" />
+
+    <EditText
+        android:id="@+id/text_parPin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:ellipsize="end"
+        android:hint="@string/hint_pinParalel"
+        android:inputType="numberPassword" />
+
+    <Button
+        android:id="@+id/btn_sendPar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="15dip"
+        android:text="@string/button_sendPar" />
+
+</LinearLayout>
