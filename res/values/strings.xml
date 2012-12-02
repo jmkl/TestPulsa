@@ -28,7 +28,7 @@
     <string name="title_predefinedInput">Predefined Value</string>
     <string name="title_nominalValue">Nominal :</string>
     <string name="nominalPrompt">Silakan pilih nilai nominal</string>
-    
+
     <!-- Pin Dialog -->
     <string name="hint_userPin">Masukkan kode PIN anda</string>
     <string name="title_userPin">Masukkan kode PIN anda:</string>
@@ -83,18 +83,60 @@
     <string name="title_prefsButtonCancelUserPin">Batal</string>
     <string name="title_prefsUserPin">PIN</string>
     <string name="summary_prefsUserPin">Ubah atau hapus PIN</string>
-    
+
     <!-- Cek Harga -->
     <string name="title_operatorHarga">Pilih Operator :</string>
     <string name="hargaPrompt">Silakan pilih operator</string>
     <string name="title_pinHarga">PIN anda :</string>
     <string name="hint_pinHarga">Masukkan PIN anda</string>
     <string name="button_cekHarga">Kirim</string>
-    
+
     <!-- Fragment Panel -->
     <string name="panel_cekSaldo">Cek Saldo</string>
     <string name="panel_cekHarga">Cek Harga</string>
     <string name="panel_changePin">Ganti PIN</string>
     <string name="panel_complain">Komplain</string>
-    
+
+    <!-- Cek Transaksi -->
+    <string name="title_cekTrans">PIN anda :</string>
+    <string name="hint_cekTrans">Masukkan PIN anda</string>
+    <string name="button_cekTrans">Kirim</string>
+
+    <!-- Paralel NO HP -->
+    <string name="title_parNumber">Masukkan nomor tujuan :</string>
+    <string name="hint_parNumber">Masukkan nomor tujuan yang valid</string>
+    <string name="title_pinParalel">PIN anda :</string>
+    <string name="hint_pinParalel">Masukkan PIN anda</string>
+    <string name="button_sendPar">Kirim</string>
+
+    <!-- Cek Downline Deposit -->
+    <string name="title_downDepositNum">Masukkan nomor downline :</string>
+    <string name="hint_downDepositNum">Masukkan nomor downline yang valid</string>
+    <string name="title_downPin">PIN anda :</string>
+    <string name="hint_downPin">Masukkan PIN anda</string>
+    <string name="button_sendDownDeposit">Kirim</string>
+
+    <!-- Hapus Agen -->
+    <string name="title_hapusAgenNum">Masukkan nomor downline yang akan dihapus :</string>
+    <string name="hint_hapusAgenNum">Masukkan nomor downline yang valid</string>
+    <string name="title_hapusAgenPin">PIN anda :</string>
+    <string name="hint_hapusAgenPin">Masukkan PIN anda</string>
+    <string name="button_hapusAgen">Kirim</string>
+
+    <!-- Tambah Deposit Downline -->
+    <string name="title_tmbhDpstNum">Masukkan nomor downline :</string>
+    <string name="hint_tmbhDpstNum">Masukkan nomor downline yang valid</string>
+    <string name="title_tmbhDpstDwn">Masukkan nominal (min 10.000) :</string>
+    <string name="hint_tmbhDpstDwn">Masukkan nominal</string>
+    <string name="title_tmbhDpstPin">PIN anda :</string>
+    <string name="hint_tmbhDpstPin">Masukkan PIN anda</string>
+    <string name="button_tmbhDpstDwn">Kirim</string>
+
+    <!-- Cari Kode Kecamatan -->
+    <string name="title_cariKodeKec">Masukkan nama kecamatan :</string>
+    <string name="hint_cariKodeKec">Masukkan nama kecamatan yang benar</string>
+    <string name="title_cariKodePin">PIN anda :</string>
+    <string name="hint_cariKodePin">Masukkan PIN anda</string>
+    <string name="button_cariKodeKec">Kirim</string>
+
 </resources>
