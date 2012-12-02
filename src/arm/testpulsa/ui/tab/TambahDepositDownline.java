@@ -17,7 +17,7 @@ import arm.testpulsa.receiver.SentReceiver;
 import arm.testpulsa.utils.ArmHelpers;
 import arm.testpulsa.utils.ArmPulsaAddressMalformedException;
 
-public class TmbhDepositDownline extends Activity implements TextWatcher {
+public class TambahDepositDownline extends Activity implements TextWatcher {
 	public static final String SMS_SENT = "SMS_SENT";
 	public static final String SMS_DELIVERED = "SMS_DELIVERED";
 	private final BroadcastReceiver sentReceiver = new SentReceiver();
@@ -97,7 +97,7 @@ public class TmbhDepositDownline extends Activity implements TextWatcher {
 
 			final String smsMessage = String.format("ADDD.%s.%s.%s", dpstNum, dpstNom, dpstPin);
 
-			ArmHelpers.sendSMS(TmbhDepositDownline.this, "5556", smsMessage);
+			ArmHelpers.sendSMS(TambahDepositDownline.this, "5556", smsMessage);
 		}
 	}
 }

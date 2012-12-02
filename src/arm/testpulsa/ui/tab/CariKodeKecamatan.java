@@ -17,7 +17,7 @@ import arm.testpulsa.receiver.SentReceiver;
 import arm.testpulsa.utils.ArmHelpers;
 import arm.testpulsa.utils.ArmPulsaAddressMalformedException;
 
-public class CariKodeKec extends Activity implements TextWatcher {
+public class CariKodeKecamatan extends Activity implements TextWatcher {
 	public static final String SMS_SENT = "SMS_SENT";
 	public static final String SMS_DELIVERED = "SMS_DELIVERED";
 	private final BroadcastReceiver sentReceiver = new SentReceiver();
@@ -94,7 +94,7 @@ public class CariKodeKec extends Activity implements TextWatcher {
 
 			final String smsMessage = String.format("CARI.%s.%s", cariKode, cariPin);
 
-			ArmHelpers.sendSMS(CariKodeKec.this, "5556", smsMessage);
+			ArmHelpers.sendSMS(CariKodeKecamatan.this, "5556", smsMessage);
 		}
 	}
 }
