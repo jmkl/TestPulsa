@@ -92,7 +92,7 @@ public class ParalelNoHp extends Activity implements TextWatcher {
 			parNum = txtParNum.getText().toString();
 			parPin = txtPinPar.getText().toString();
 
-			final String smsMessage = String.format("PAR.%s.%s",parNum, parPin);
+			final String smsMessage = String.format("PAR.%s.%s", parNum, parPin);
 
 			ArmHelpers.sendSMS(ParalelNoHp.this, "5556", smsMessage);
 		}

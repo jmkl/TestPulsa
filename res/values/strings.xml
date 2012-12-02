@@ -123,7 +123,7 @@
     <string name="hint_hapusAgenPin">Masukkan PIN anda</string>
     <string name="button_hapusAgen">Kirim</string>
 
-    <!-- Tambah Deposit Downline -->
+    <!-- tmbh Deposit Downline -->
     <string name="title_tmbhDpstNum">Masukkan nomor downline :</string>
     <string name="hint_tmbhDpstNum">Masukkan nomor downline yang valid</string>
     <string name="title_tmbhDpstDwn">Masukkan nominal (min 10.000) :</string>
@@ -138,5 +138,20 @@
     <string name="title_cariKodePin">PIN anda :</string>
     <string name="hint_cariKodePin">Masukkan PIN anda</string>
     <string name="button_cariKodeKec">Kirim</string>
+    
+    <!-- tmbh Agen -->
+    <string name="title_tmbhAgenNum">Masukkan nomor agen baru :</string>
+    <string name="hint_tmbhAgenNum">Masukkan nomor yang valid</string>
+    <string name="title_tmbhAgenName">Nama agen baru :</string>
+    <string name="hint_tmbhAgenName">Masukkan nama agen baru</string>
+    <string name="title_tmbhAgenMark">Mark up harga :</string>
+    <string name="hint_tmbhAgenMark">Nominal mark up</string>
+    <string name="title_tmbhAgenSaldo">Saldo agen baru :</string>
+    <string name="hint_tmbhAgenSaldo">Nominal saldo</string>
+    <string name="title_tmbhAgenKec">Kode kecamatan agen baru :</string>
+    <string name="hint_tmbhAgenKec">Kode kecamatan</string>
+    <string name="title_tmbhAgenPin">PIN anda :</string>
+    <string name="hint_tmbhAgenPin">Masukkan PIN anda</string>
+    <string name="button_tmbhAgen">Kirim</string>
 
 </resources>
