@@ -1,4 +1,4 @@
-package arm.testpulsa.ui.tab;
+package arm.testpulsa.ui.agent;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -17,30 +17,30 @@ import arm.testpulsa.receiver.SentReceiver;
 import arm.testpulsa.utils.ArmHelpers;
 import arm.testpulsa.utils.ArmPulsaAddressMalformedException;
 
-public class HapusAgen extends Activity implements TextWatcher {
+public class CekDownlineDeposit extends Activity implements TextWatcher {
 	public static final String SMS_SENT = "SMS_SENT";
 	public static final String SMS_DELIVERED = "SMS_DELIVERED";
 	private final BroadcastReceiver sentReceiver = new SentReceiver();
 	private final BroadcastReceiver deliveryReceiver = new DeliveryReceiver();
 	
-	EditText txtHapusNum, txtHapusPin;
-	Button btnHapusAgen;
+	EditText txtDownDepNum, txtDownDepPin;
+	Button btnSenDownPin;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.hapus_agen);
+		setContentView(R.layout.cek_deposit_downline);
 
 		// find view
-		txtHapusNum = (EditText) findViewById(R.id.text_hapusAgenNum);
-		txtHapusPin = (EditText) findViewById(R.id.text_hapusAgenPin);
-		btnHapusAgen = (Button) findViewById(R.id.btn_hapusAgen);
+		txtDownDepNum = (EditText) findViewById(R.id.text_downDepositNum);
+		txtDownDepPin = (EditText) findViewById(R.id.text_downDepositPin);
+		btnSenDownPin = (Button) findViewById(R.id.btn_sendDownDeposit);
 
 		// set listener
-		txtHapusNum.addTextChangedListener(this);
-		txtHapusPin.addTextChangedListener(this);
-		btnHapusAgen.setEnabled(true);
-		btnHapusAgen.setOnClickListener(new HapusButtonOnClick());
+		txtDownDepNum.addTextChangedListener(this);
+		txtDownDepPin.addTextChangedListener(this);
+		btnSenDownPin.setEnabled(true);
+		btnSenDownPin.setOnClickListener(new DepositButtonOnClick());
 
 	}
 
@@ -62,11 +62,11 @@ public class HapusAgen extends Activity implements TextWatcher {
 	public void afterTextChanged(Editable s) {
 		try {
 			ArmHelpers.verifyPhoneNumber(s);
-			btnHapusAgen.setEnabled(true);
-			txtHapusNum.setTextColor(Color.BLACK);
+			btnSenDownPin.setEnabled(true);
+			txtDownDepNum.setTextColor(Color.BLACK);
 		} catch (ArmPulsaAddressMalformedException e) {
-			btnHapusAgen.setEnabled(false);
-			txtHapusNum.setTextColor(Color.RED);
+			btnSenDownPin.setEnabled(false);
+			txtDownDepNum.setTextColor(Color.RED);
 		}
 
 	}
@@ -84,17 +84,17 @@ public class HapusAgen extends Activity implements TextWatcher {
 
 	}
 
-	private class HapusButtonOnClick implements OnClickListener {
+	private class DepositButtonOnClick implements OnClickListener {
 
 		@Override
 		public void onClick(View v) {
-			String hapNum, hapPin;
-			hapNum = txtHapusNum.getText().toString();
-			hapPin = txtHapusPin.getText().toString();
+			String downDepNum, downDepPin;
+			downDepNum = txtDownDepNum.getText().toString();
+			downDepPin = txtDownDepPin.getText().toString();
 
-			final String smsMessage = String.format("HAPUS.%s.%s", hapNum, hapPin);
+			final String smsMessage = String.format("CEKDEP.%s.%s", downDepNum, downDepPin);
 
-			ArmHelpers.sendSMS(HapusAgen.this, "5556", smsMessage);
+			ArmHelpers.sendSMS(CekDownlineDeposit.this, "5556", smsMessage);
 		}
 	}
 }

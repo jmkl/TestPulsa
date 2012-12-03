@@ -39,7 +39,7 @@
         <activity
             android:name=".ui.UserActivity">
         </activity>
-        <activity android:name=".Preferences" >
+        <activity android:name="arm.testpulsa.Preferences" >
         </activity>
 
         <receiver
