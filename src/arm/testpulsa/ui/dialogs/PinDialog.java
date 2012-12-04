@@ -3,13 +3,11 @@ package arm.testpulsa.ui.dialogs;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import arm.testpulsa.R;
+import arm.testpulsa.TestPulsaConfiguration;
 import arm.testpulsa.ui.MainScreen;
 
 public class PinDialog extends AlertDialog implements
@@ -17,10 +15,12 @@ public class PinDialog extends AlertDialog implements
 
 	private MainScreen mainScreen;
 	private EditText textPin;
+	private TestPulsaConfiguration mConfig;
 
-	public PinDialog(MainScreen mainScreen) {
+	public PinDialog(MainScreen mainScreen, TestPulsaConfiguration config) {
 		super(mainScreen);
 		this.mainScreen = mainScreen; // 'this' as left hand qualifier
+		mConfig = config;
 		setTitle(R.string.title_userPin);
 
 		LayoutInflater inflater = (LayoutInflater) mainScreen
@@ -40,11 +40,7 @@ public class PinDialog extends AlertDialog implements
 		case BUTTON_POSITIVE:
 			// FIXME must not save pin as human readable text
 			String userPin = textPin.getText().toString();
-			SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mainScreen);
-			Editor editor = sharedPreferences.edit();
-			
-			editor.putString("pin", userPin);
-			editor.commit();
+			mConfig.setPIN(userPin);
 			break;
 		case BUTTON_NEGATIVE:
 			mainScreen.finish();
