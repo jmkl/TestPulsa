@@ -34,6 +34,7 @@
             android:key="sendToNumber"
             android:negativeButtonText="@android:string/cancel"
             android:positiveButtonText="@android:string/ok"
+            android:inputType="phone"
             android:title="@string/title_prefsSendTo" />
     </PreferenceCategory>
 
