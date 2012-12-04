@@ -2,6 +2,7 @@ package arm.testpulsa.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -16,6 +17,7 @@ import arm.testpulsa.ui.dialogs.PinDialog;
 public class MainScreen extends Activity implements OnClickListener {
 	private static final String TAG = MainScreen.class.getSimpleName();
 	private Button btnSMS, btnReport, btnSettings, btnAbout;
+	private PinDialog mPinDialog;
 	private TestPulsaConfiguration mConfig;
 
 	@Override
@@ -25,6 +27,7 @@ public class MainScreen extends Activity implements OnClickListener {
 
 		mConfig = new TestPulsaConfiguration(
 				PreferenceManager.getDefaultSharedPreferences(this));
+		mPinDialog = new PinDialog(this, mConfig);
 		showPinDialogIfPinNotSet();
 
 		// find view
@@ -41,10 +44,27 @@ public class MainScreen extends Activity implements OnClickListener {
 		Log.i(TAG, "onCreate");
 	}
 
+	/*
+	 * Fcuk this....
+	 * Prevent activity called onDestroy onOrientationChanged
+	 */
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+	}
+
 	@Override
 	protected void onDestroy() {
 		clearUserPinPreference();
 		super.onDestroy();
+		Log.d(TAG, "onDestroy");
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		if (mPinDialog.isShowing())
+			mPinDialog.dismiss();
 	}
 
 	private void clearUserPinPreference() {
@@ -57,8 +77,8 @@ public class MainScreen extends Activity implements OnClickListener {
 	}
 
 	private void showPinDialogIfPinNotSet() {
-		if (mConfig.userPin.length() < 4 && mConfig.userPin.isEmpty()) {
-			new PinDialog(this, mConfig).show();
+		if (mConfig.userPin.length() < 4 && mConfig.userPin.equals("")) {
+			mPinDialog.show();
 		}
 	}
 
