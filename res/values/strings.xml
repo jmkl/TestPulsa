@@ -93,10 +93,10 @@
     <string name="panel_changePin">Ganti PIN</string>
     <string name="panel_complain">Komplain</string>
     <string name="panel_cariKodeKec">Cari Kode</string>
-    <string name="panel_cekDepositDown">Cek Deposit D.</string>
+    <string name="panel_cekDepositDown">Cek Deposit Downline</string>
     <string name="panel_hapusAgen">Hapus Agen</string>
     <string name="panel_tambahAgen">Tambah Agen</string>
-    <string name="panel_tambahDepositDown">Tambah Deposit D.</string>
+    <string name="panel_tambahDepositDown">Tambah Deposit Downline</string>
 
     <!-- Cek Transaksi -->
     <string name="title_cekTrans">PIN anda :</string>
