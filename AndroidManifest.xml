@@ -37,7 +37,8 @@
             android:label="@string/title_activity_main" >
         </activity>
         <activity
-            android:name=".ui.UserActivity">
+            android:name=".ui.UserActivity"
+            android:configChanges="orientation|keyboardHidden" >
         </activity>
         <activity android:name="arm.testpulsa.Preferences" >
         </activity>
