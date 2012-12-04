@@ -26,6 +26,7 @@
         </activity>
         <activity
             android:name=".ui.MainScreen"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_appDashboard" >
         </activity>
         <activity
@@ -36,9 +37,7 @@
             android:name=".ui.AboutApp"
             android:label="@string/title_activity_main" >
         </activity>
-        <activity
-            android:name=".ui.UserActivity"
-            android:configChanges="orientation|keyboardHidden" >
+        <activity android:name=".ui.UserActivity" >
         </activity>
         <activity android:name="arm.testpulsa.Preferences" >
         </activity>
