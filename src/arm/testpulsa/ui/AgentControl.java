@@ -38,7 +38,7 @@ public class AgentControl extends BaseSherlockFragmentActivity {
 				.setTabListener(new TabListener(mPager, 3)));
 		mActionBar.addTab(mActionBar.newTab()
 				.setText(getString(R.string.panel_cekDepositDown))
-				.setTabListener(new TabListener(mPager, 0)));
+				.setTabListener(new TabListener(mPager, 4)));
 
 		mFragments.add(mCariKodeKecamatanTabFragment);
 		mFragments.add(mTambahAgenTabFragment);
