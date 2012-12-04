@@ -34,7 +34,7 @@
             android:label="@string/title_activity_main" >
         </activity>
         <activity
-            android:name=".ui.AboutApp"
+            android:name=".ui.AgentControl"
             android:label="@string/title_activity_main" >
         </activity>
         <activity android:name=".ui.UserActivity" >
