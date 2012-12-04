@@ -25,6 +25,10 @@ public class ChangePinTabFragment extends BaseSherlockFragment implements
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.tab_change_pin, container, false);
+
+		// read config
+		setConfig();
+
 		// find view
 		txtPinOld = (EditText) view.findViewById(R.id.textPinOld);
 		txtPinNew = (EditText) view.findViewById(R.id.textPinNew);

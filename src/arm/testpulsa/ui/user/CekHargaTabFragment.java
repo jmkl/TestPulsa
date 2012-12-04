@@ -22,11 +22,13 @@ public class CekHargaTabFragment extends BaseSherlockFragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.tab_cek_harga, container, false);
 
+		// read config
+		setConfig();
+
 		// find view by id
 		spnHarga = (Spinner) view.findViewById(R.id.spinnerHarga);
 		btnCekHarga = (Button) view.findViewById(R.id.btn_cekHarga);
 		setAdapter();
-		btnCekHarga.setEnabled(false);
 
 		HargaOperator ho = (HargaOperator) spnHarga.getSelectedItem();
 		harga = String.valueOf(ho.kode);

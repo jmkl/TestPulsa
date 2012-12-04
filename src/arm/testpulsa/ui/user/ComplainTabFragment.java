@@ -21,6 +21,9 @@ public class ComplainTabFragment extends BaseSherlockFragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.tab_complain, container, false);
 
+		// read config
+		setConfig();
+
 		// find view
 		txtKomplainNum = (EditText) view.findViewById(R.id.text_KomplainNum);
 		txtKomplainText = (EditText) view.findViewById(R.id.text_KomplainText);

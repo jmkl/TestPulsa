@@ -20,8 +20,10 @@ public class ParalelNoHpTabFragment extends BaseSherlockFragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.tab_paralel_hp, container, false);
 
-		// find view
+		// read config
+		setConfig();
 
+		// find view
 		txtParalelNumber = (EditText) view.findViewById(R.id.text_parNumber);
 		txtParalelPin = (EditText) view.findViewById(R.id.text_parPin);
 		btnSendParalel = (Button) view.findViewById(R.id.btn_sendPar);

@@ -17,7 +17,12 @@ public class CekTransaksiTabFragment extends BaseSherlockFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.tab_cek_transaksi, container, false);
+		View view = inflater.inflate(R.layout.tab_cek_transaksi, container,
+				false);
+
+		// read config
+		setConfig();
+
 		// find view
 		txtCekTrans = (EditText) view.findViewById(R.id.textCekTrans);
 		btnCekTrans = (Button) view.findViewById(R.id.btn_cekTrans);

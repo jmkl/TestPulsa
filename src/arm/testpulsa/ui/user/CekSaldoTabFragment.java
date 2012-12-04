@@ -19,6 +19,9 @@ public class CekSaldoTabFragment extends BaseSherlockFragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.tab_cek_saldo, container, false);
 
+		// read config
+		setConfig();
+
 		// find view
 		txtPinSaldo = (EditText) view.findViewById(R.id.textPinSaldo);
 		btnCekSaldo = (Button) view.findViewById(R.id.btn_cekSaldo);
