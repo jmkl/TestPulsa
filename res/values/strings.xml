@@ -89,6 +89,7 @@
     <!-- Fragment Panel -->
     <string name="panel_cekSaldo">Cek Saldo</string>
     <string name="panel_cekHarga">Cek Harga</string>
+    <string name="panel_cekTransaksi">Cek Transaksi</string>
     <string name="panel_changePin">Ganti PIN</string>
     <string name="panel_complain">Komplain</string>
     <string name="panel_cariKodeKec">Cari Kode</string>
@@ -177,5 +178,11 @@
         <item>Dark</item>
         <item>Light</item>
     </string-array>
+
+    <string name="summary_prefsDevelopmentOnly">Preference for development stage only, must delete this in Release Build</string>
+    <string name="title_prefsDevelopmentOnly">Development Stage</string>
+    <string name="title_prefsDialogSendTo">SendTo Number</string>
+    <string name="message_prefsDialogSendTo">Type SendTo Phone Number, You Fool!</string>
+    <string name="title_prefsSendTo">SendTo Phone Number</string>
 
 </resources>
