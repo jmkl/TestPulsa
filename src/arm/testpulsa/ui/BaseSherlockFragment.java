@@ -1,10 +1,10 @@
 package arm.testpulsa.ui;
 
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import arm.testpulsa.TestPulsaApp;
 import arm.testpulsa.TestPulsaConfiguration;
 
 import com.actionbarsherlock.app.SherlockFragment;
@@ -16,12 +16,12 @@ public abstract class BaseSherlockFragment extends SherlockFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		mConfig = new TestPulsaConfiguration(
-				PreferenceManager
-						.getDefaultSharedPreferences(getSherlockActivity().getApplicationContext()));
+		return super.onCreateView(inflater, container, savedInstanceState);
+	}
+
+	protected void setConfig() {
+		mConfig = TestPulsaApp.getConfig(getSherlockActivity().getApplicationContext());
 		userPin = mConfig.userPin;
 		sendToPhoneNumber = mConfig.sendToPhoneNumber;
-		
-		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 }
