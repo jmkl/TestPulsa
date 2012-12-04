@@ -3,7 +3,6 @@ package arm.testpulsa.ui;
 import java.util.ArrayList;
 
 import android.content.BroadcastReceiver;
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
