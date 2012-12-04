@@ -11,6 +11,7 @@ public class TestPulsaConfiguration implements OnSharedPreferenceChangeListener 
 	public String userPin;
 	public boolean deletePinOnDestroy;
 	public String theme;
+	public String sendToPhoneNumber;
 
 	private final SharedPreferences prefs;
 
@@ -49,6 +50,7 @@ public class TestPulsaConfiguration implements OnSharedPreferenceChangeListener 
 		this.userPin = prefs.getString("pin", "");
 		this.deletePinOnDestroy = prefs.getBoolean("deletePinOnDestroy", false);
 		this.theme = prefs.getString("theme", "dark");
+		this.sendToPhoneNumber = prefs.getString("sendToNumber", "5556");
 	}
 	
 	public int getTheme() {
