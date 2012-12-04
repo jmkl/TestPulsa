@@ -26,8 +26,9 @@ public class CekDepositDownlineTabFragment extends BaseSherlockFragment {
 				.findViewById(R.id.text_downDepositPin);
 		btnDownDeposit = (Button) view.findViewById(R.id.btn_sendDownDeposit);
 
-		final String smsMessage = String.format("CEKDEP.%s.%s", txtDownDepositNum
-				.getText().toString(), txtDownDepositPin.getText().toString());
+		final String smsMessage = String.format("CEKDEP.%s.%s",
+				txtDownDepositNum.getText().toString(), txtDownDepositPin
+						.getText().toString());
 
 		// Set Listener
 		btnDownDeposit.setOnClickListener(new KirimButtonListener(
