@@ -78,11 +78,6 @@
     <string name="dashboard_settings">Settings</string>
     <string name="dashboard_agent">Agent Control</string>
     <string name="title_activity_appDashboard">Dashboard</string>
-    <string name="title_prefsDialogPin">Ubah PIN</string>
-    <string name="title_prefsButtonOKUserPin">Ubah</string>
-    <string name="title_prefsButtonCancelUserPin">Batal</string>
-    <string name="title_prefsUserPin">PIN</string>
-    <string name="summary_prefsUserPin">Ubah atau hapus PIN</string>
 
     <!-- Cek Harga -->
     <string name="title_operatorHarga">Pilih Operator :</string>
@@ -143,7 +138,7 @@
     <string name="title_cariKodePin">PIN anda :</string>
     <string name="hint_cariKodePin">Masukkan PIN anda</string>
     <string name="button_cariKodeKec">Kirim</string>
-    
+
     <!-- tmbh Agen -->
     <string name="title_tmbhAgenNum">Masukkan nomor agen baru :</string>
     <string name="hint_tmbhAgenNum">Masukkan nomor yang valid</string>
@@ -158,5 +153,29 @@
     <string name="title_tmbhAgenPin">PIN anda :</string>
     <string name="hint_tmbhAgenPin">Masukkan PIN anda</string>
     <string name="button_tmbhAgen">Kirim</string>
+
+    <!-- Preferences -->
+    <string name="title_prefsSelectTheme">Tema</string>
+    <string name="summary_prefsSelectTheme">Pilih Tema</string>
+    <string name="title_prefsDialogPin">Ubah PIN</string>
+    <string name="title_prefsButtonOKUserPin">Ubah</string>
+    <string name="title_prefsButtonCancelUserPin">Batal</string>
+    <string name="title_prefsUserPin">PIN</string>
+    <string name="title_prefsDeletePinOn">Hapus PIN Otomatis</string>
+    <string name="summary_prefsDeletePinOn">Nomer PIN Anda akan dihapus ketika keluar applikasi</string>
+    <string name="title_prefsCategoryPin">Pengaturan PIN</string>
+    <string name="summary_prefsUserPin">Ubah atau hapus PIN</string>
+
+    <string-array name="pref_theme_values">
+        <item>dark</item>
+        <item>light</item>
+    </string-array>
+
+    <string name="pref_theme_entries">Theme</string>
+
+    <string-array name="pref_theme_entries">
+        <item>Dark</item>
+        <item>Light</item>
+    </string-array>
 
 </resources>
