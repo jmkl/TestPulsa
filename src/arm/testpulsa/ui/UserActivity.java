@@ -14,10 +14,10 @@ import android.util.Log;
 import arm.testpulsa.R;
 import arm.testpulsa.receiver.DeliveryReceiver;
 import arm.testpulsa.receiver.SentReceiver;
-import arm.testpulsa.ui.tab.CekHargaTabFragment;
-import arm.testpulsa.ui.tab.CekSaldoTabFragment;
-import arm.testpulsa.ui.tab.ChangePinTabFragment;
-import arm.testpulsa.ui.tab.ComplainTabFragment;
+import arm.testpulsa.ui.user.CekHargaTabFragment;
+import arm.testpulsa.ui.user.CekSaldoTabFragment;
+import arm.testpulsa.ui.user.ChangePinTabFragment;
+import arm.testpulsa.ui.user.ComplainTabFragment;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;

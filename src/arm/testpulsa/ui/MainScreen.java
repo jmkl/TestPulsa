@@ -74,7 +74,7 @@ public class MainScreen extends Activity implements OnClickListener {
 			startActivity(sms);
 			break;
 		case R.id.btn_about:
-			Intent about = new Intent(getApplicationContext(), AboutApp.class);
+			Intent about = new Intent(getApplicationContext(), AgentControl.class);
 			startActivity(about);
 			break;
 		case R.id.btn_report:

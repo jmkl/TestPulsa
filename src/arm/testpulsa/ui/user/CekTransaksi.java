@@ -1,4 +1,4 @@
-package arm.testpulsa.ui.tab;
+package arm.testpulsa.ui.user;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -17,30 +17,27 @@ import arm.testpulsa.receiver.SentReceiver;
 import arm.testpulsa.utils.ArmHelpers;
 import arm.testpulsa.utils.ArmPulsaAddressMalformedException;
 
-public class HapusAgen extends Activity implements TextWatcher {
+public class CekTransaksi extends Activity implements TextWatcher {
 	public static final String SMS_SENT = "SMS_SENT";
 	public static final String SMS_DELIVERED = "SMS_DELIVERED";
 	private final BroadcastReceiver sentReceiver = new SentReceiver();
 	private final BroadcastReceiver deliveryReceiver = new DeliveryReceiver();
-	
-	EditText txtHapusNum, txtHapusPin;
-	Button btnHapusAgen;
+	EditText txtCekTrans;
+	Button btnCekTrans;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.hapus_agen);
+		setContentView(R.layout.cek_transaksi);
 
 		// find view
-		txtHapusNum = (EditText) findViewById(R.id.text_hapusAgenNum);
-		txtHapusPin = (EditText) findViewById(R.id.text_hapusAgenPin);
-		btnHapusAgen = (Button) findViewById(R.id.btn_hapusAgen);
+		txtCekTrans = (EditText) findViewById(R.id.textCekTrans);
+		btnCekTrans = (Button) findViewById(R.id.btn_cekTrans);
 
-		// set listener
-		txtHapusNum.addTextChangedListener(this);
-		txtHapusPin.addTextChangedListener(this);
-		btnHapusAgen.setEnabled(true);
-		btnHapusAgen.setOnClickListener(new HapusButtonOnClick());
+		// setting listener
+		txtCekTrans.addTextChangedListener(this);
+		btnCekTrans.setEnabled(false);
+		btnCekTrans.setOnClickListener(new TransButtonOnclick());
 
 	}
 
@@ -61,12 +58,12 @@ public class HapusAgen extends Activity implements TextWatcher {
 	@Override
 	public void afterTextChanged(Editable s) {
 		try {
-			ArmHelpers.verifyPhoneNumber(s);
-			btnHapusAgen.setEnabled(true);
-			txtHapusNum.setTextColor(Color.BLACK);
+			ArmHelpers.verifyPinNumber(s);
+			btnCekTrans.setEnabled(true);
+			txtCekTrans.setTextColor(Color.BLACK);
 		} catch (ArmPulsaAddressMalformedException e) {
-			btnHapusAgen.setEnabled(false);
-			txtHapusNum.setTextColor(Color.RED);
+			btnCekTrans.setEnabled(false);
+			txtCekTrans.setTextColor(Color.RED);
 		}
 
 	}
@@ -74,27 +71,27 @@ public class HapusAgen extends Activity implements TextWatcher {
 	@Override
 	public void beforeTextChanged(CharSequence s, int start, int count,
 			int after) {
-		// nothing to do here
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void onTextChanged(CharSequence s, int start, int before, int count) {
-		// nothing to do here
+		// TODO Auto-generated method stub
 
 	}
 
-	private class HapusButtonOnClick implements OnClickListener {
+	public class TransButtonOnclick implements OnClickListener {
 
 		@Override
 		public void onClick(View v) {
-			String hapNum, hapPin;
-			hapNum = txtHapusNum.getText().toString();
-			hapPin = txtHapusPin.getText().toString();
+			String pinCekTrans;
+			pinCekTrans = txtCekTrans.getText().toString();
 
-			final String smsMessage = String.format("HAPUS.%s.%s", hapNum, hapPin);
+			final String smsMessage = String.format("TRX.%s", pinCekTrans);
 
-			ArmHelpers.sendSMS(HapusAgen.this, "5556", smsMessage);
+			ArmHelpers.sendSMS(CekTransaksi.this, "+6287792021743", smsMessage);
 		}
+
 	}
 }

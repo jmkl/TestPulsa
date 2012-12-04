@@ -1,4 +1,4 @@
-package arm.testpulsa.ui.tab;
+package arm.testpulsa.ui.user;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,24 +16,25 @@ import arm.testpulsa.utils.ArmPulsaAddressMalformedException;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
-public class CekSaldoTabFragment extends SherlockFragment implements
+public class ChangePinTabFragment extends SherlockFragment implements
 		TextWatcher {
-	EditText txtPinSaldo;
-	Button btnCekSaldo;
+	EditText txtPinOld, txtPinNew;
+	Button btnChangePin;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.tab_cek_saldo, container, false);
-
+		View view = inflater.inflate(R.layout.tab_change_pin, container, false);
 		// find view
-		txtPinSaldo = (EditText) view.findViewById(R.id.textPinSaldo);
-		btnCekSaldo = (Button) view.findViewById(R.id.btn_cekSaldo);
+		txtPinOld = (EditText) view.findViewById(R.id.textPinOld);
+		txtPinNew = (EditText) view.findViewById(R.id.textPinNew);
+		btnChangePin = (Button) view.findViewById(R.id.btn_changePin);
 
-		// setting listener
-		txtPinSaldo.addTextChangedListener(this);
-		btnCekSaldo.setEnabled(false);
-		btnCekSaldo.setOnClickListener(new CekButtonOnclick());
+		// set listener
+		txtPinOld.addTextChangedListener(this);
+		txtPinNew.addTextChangedListener(this);
+		btnChangePin.setEnabled(true);
+		btnChangePin.setOnClickListener(new ChangeButtonOnClick());
 		return view;
 	}
 
@@ -41,11 +42,11 @@ public class CekSaldoTabFragment extends SherlockFragment implements
 	public void afterTextChanged(Editable s) {
 		try {
 			ArmHelpers.verifyPinNumber(s);
-			btnCekSaldo.setEnabled(true);
-			txtPinSaldo.setTextColor(Color.BLACK);
+			btnChangePin.setEnabled(true);
+			txtPinNew.setTextColor(Color.BLACK);
 		} catch (ArmPulsaAddressMalformedException e) {
-			btnCekSaldo.setEnabled(false);
-			txtPinSaldo.setTextColor(Color.RED);
+			btnChangePin.setEnabled(false);
+			txtPinNew.setTextColor(Color.RED);
 		}
 
 	}
@@ -53,28 +54,28 @@ public class CekSaldoTabFragment extends SherlockFragment implements
 	@Override
 	public void beforeTextChanged(CharSequence s, int start, int count,
 			int after) {
-		// TODO Auto-generated method stub
+		// nothing to do here
 
 	}
 
 	@Override
 	public void onTextChanged(CharSequence s, int start, int before, int count) {
-		// TODO Auto-generated method stub
+		// nothing to do here
 
 	}
 
-	public class CekButtonOnclick implements OnClickListener {
+	private class ChangeButtonOnClick implements OnClickListener {
 
 		@Override
 		public void onClick(View v) {
-			String pinCekSaldo;
-			pinCekSaldo = txtPinSaldo.getText().toString();
+			String pinOld, pinNew;
+			pinOld = txtPinOld.getText().toString();
+			pinNew = txtPinNew.getText().toString();
 
-			final String smsMessage = String.format("S.%s", pinCekSaldo);
+			final String smsMessage = String.format("S.%s.%s", pinOld, pinNew);
 
 			ArmHelpers.sendSMS(getSherlockActivity().getApplicationContext(),
-					"+6287792021743", smsMessage);
+					"5556", smsMessage);
 		}
-
 	}
 }

@@ -36,6 +36,6 @@
         android:id="@+id/btn_about"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/ic_dashboard_about"
-        android:text="@string/dashboard_about" />
+        android:text="@string/dashboard_agent" />
 
 </arm.testpulsa.utils.AppDashboard>
