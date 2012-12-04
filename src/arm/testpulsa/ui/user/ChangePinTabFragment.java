@@ -1,25 +1,19 @@
 package arm.testpulsa.ui.user;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import arm.testpulsa.R;
-import arm.testpulsa.utils.ArmHelpers;
-import arm.testpulsa.utils.ArmPulsaAddressMalformedException;
+import arm.testpulsa.ui.BaseSherlockFragment;
+import arm.testpulsa.ui.KirimButtonListener;
 
-import com.actionbarsherlock.app.SherlockFragment;
-
-public class ChangePinTabFragment extends SherlockFragment implements
-		TextWatcher {
-	EditText txtPinOld, txtPinNew;
-	Button btnChangePin;
+public class ChangePinTabFragment extends BaseSherlockFragment {
+	private EditText txtPinOld, txtPinNew;
+	private Button btnChangePin;
+	private String pinOld, pinNew;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,48 +28,13 @@ public class ChangePinTabFragment extends SherlockFragment implements
 		txtPinOld.addTextChangedListener(this);
 		txtPinNew.addTextChangedListener(this);
 		btnChangePin.setEnabled(true);
-		btnChangePin.setOnClickListener(new ChangeButtonOnClick());
+		
+		pinOld = txtPinOld.getText().toString();
+		pinNew = txtPinNew.getText().toString();
+
+		final String smsMessage = String.format("S.%s.%s", pinOld, pinNew);
+		
+		btnChangePin.setOnClickListener(new KirimButtonListener(getSherlockActivity(), smsMessage, "5556"));
 		return view;
-	}
-
-	@Override
-	public void afterTextChanged(Editable s) {
-		try {
-			ArmHelpers.verifyPinNumber(s);
-			btnChangePin.setEnabled(true);
-			txtPinNew.setTextColor(Color.BLACK);
-		} catch (ArmPulsaAddressMalformedException e) {
-			btnChangePin.setEnabled(false);
-			txtPinNew.setTextColor(Color.RED);
-		}
-
-	}
-
-	@Override
-	public void beforeTextChanged(CharSequence s, int start, int count,
-			int after) {
-		// nothing to do here
-
-	}
-
-	@Override
-	public void onTextChanged(CharSequence s, int start, int before, int count) {
-		// nothing to do here
-
-	}
-
-	private class ChangeButtonOnClick implements OnClickListener {
-
-		@Override
-		public void onClick(View v) {
-			String pinOld, pinNew;
-			pinOld = txtPinOld.getText().toString();
-			pinNew = txtPinNew.getText().toString();
-
-			final String smsMessage = String.format("S.%s.%s", pinOld, pinNew);
-
-			ArmHelpers.sendSMS(getSherlockActivity().getApplicationContext(),
-					"5556", smsMessage);
-		}
 	}
 }
