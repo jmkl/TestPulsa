@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <EditTextPreference
-        android:dialogTitle="@string/title_prefsDialogPin"
-        android:key="pin"
-        android:negativeButtonText="@string/title_prefsButtonCancelUserPin"
-        android:positiveButtonText="@string/title_prefsButtonOKUserPin"
-        android:summary="@string/summary_prefsUserPin"
-        android:title="@string/title_prefsUserPin" 
-        android:password="true"/>
+    <PreferenceCategory android:title="@string/title_prefsCategoryPin" >
+        <EditTextPreference
+            android:dialogTitle="@string/title_prefsDialogPin"
+            android:key="pin"
+            android:negativeButtonText="@string/title_prefsButtonCancelUserPin"
+            android:password="true"
+            android:positiveButtonText="@string/title_prefsButtonOKUserPin"
+            android:summary="@string/summary_prefsUserPin"
+            android:title="@string/title_prefsUserPin" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="deletePinOnDestroy"
+            android:summary="@string/summary_prefsDeletePinOn"
+            android:title="@string/title_prefsDeletePinOn" />
+    </PreferenceCategory>
+
+    <ListPreference
+        android:key="theme"
+        android:summary="@string/summary_prefsSelectTheme"
+        android:title="@string/title_prefsSelectTheme"
+        android:entries="@array/pref_theme_entries"
+        android:entryValues="@array/pref_theme_values"/>
 
 </PreferenceScreen>
