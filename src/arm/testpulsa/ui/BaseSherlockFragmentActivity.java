@@ -3,8 +3,10 @@ package arm.testpulsa.ui;
 import java.util.ArrayList;
 
 import android.content.BroadcastReceiver;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
@@ -12,6 +14,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import arm.testpulsa.R;
+import arm.testpulsa.TestPulsaConfiguration;
 import arm.testpulsa.receiver.DeliveryReceiver;
 import arm.testpulsa.receiver.SentReceiver;
 
@@ -27,9 +30,10 @@ public class BaseSherlockFragmentActivity extends SherlockFragmentActivity {
 	public static final String SMS_DELIVERED = "SMS_DELIVERED";
 	private final BroadcastReceiver sentReceiver = new SentReceiver();
 	private final BroadcastReceiver deliveryReceiver = new DeliveryReceiver();
-
+	
 	protected ActionBar mActionBar;
 	protected ViewPager mPager;
+	protected TestPulsaConfiguration mConfig;
 	protected ArrayList<SherlockFragment> mFragments = new ArrayList<SherlockFragment>();
 
 	public class TabListener implements ActionBar.TabListener {
@@ -83,7 +87,9 @@ public class BaseSherlockFragmentActivity extends SherlockFragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(com.actionbarsherlock.R.style.Theme_Sherlock_Light);
+		mConfig = new TestPulsaConfiguration(
+				PreferenceManager.getDefaultSharedPreferences(this));
+		setTheme(mConfig.getTheme());
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tab_container);
 
@@ -92,6 +98,10 @@ public class BaseSherlockFragmentActivity extends SherlockFragmentActivity {
 		mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		mPager = (ViewPager) findViewById(R.id.fragment_container);
 
+	}
+
+	public String getUserPin() {
+		return mConfig.userPin;
 	}
 
 	public void setAdapter() {
