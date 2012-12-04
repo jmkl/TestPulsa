@@ -24,12 +24,10 @@ public class CekSaldoTabFragment extends BaseSherlockFragment {
 		btnCekSaldo = (Button) view.findViewById(R.id.btn_cekSaldo);
 
 		// setting listener
-		txtPinSaldo.addTextChangedListener(this);
-		btnCekSaldo.setEnabled(false);
 		final String smsMessage = String.format("S.%s", userPin);
 		btnCekSaldo.setOnClickListener(new KirimButtonListener(
 				getSherlockActivity().getApplicationContext(), smsMessage,
-				mConfig.sendToPhoneNumber));
+				sendToPhoneNumber));
 		return view;
 	}
 }

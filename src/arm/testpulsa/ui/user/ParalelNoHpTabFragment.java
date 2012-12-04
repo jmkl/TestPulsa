@@ -11,9 +11,9 @@ import arm.testpulsa.ui.BaseSherlockFragment;
 import arm.testpulsa.ui.KirimButtonListener;
 
 public class ParalelNoHpTabFragment extends BaseSherlockFragment {
-	private EditText txtParalelNumber, txtParalelPin;
+
 	private Button btnSendParalel;
-	private String parNum, parPin;
+	private EditText txtParalelNumber, txtParalelPin;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -21,19 +21,18 @@ public class ParalelNoHpTabFragment extends BaseSherlockFragment {
 		View view = inflater.inflate(R.layout.tab_paralel_hp, container, false);
 
 		// find view
+
 		txtParalelNumber = (EditText) view.findViewById(R.id.text_parNumber);
 		txtParalelPin = (EditText) view.findViewById(R.id.text_parPin);
 		btnSendParalel = (Button) view.findViewById(R.id.btn_sendPar);
 
-		// set listener
-		txtParalelNumber.addTextChangedListener(this);
-		txtParalelPin.addTextChangedListener(this);
-		btnSendParalel.setEnabled(true);
+		final String smsMessage = String.format("PAR.%s.%s", txtParalelNumber
+				.getText().toString(), txtParalelPin.getText().toString());
 
-		final String smsMessage = String.format("PAR.%s.%s", parNum, parPin);
+		// Set Listener
 		btnSendParalel.setOnClickListener(new KirimButtonListener(
 				getSherlockActivity().getApplicationContext(), smsMessage,
-				mConfig.sendToPhoneNumber));
+				sendToPhoneNumber));
 		return view;
 	}
 }

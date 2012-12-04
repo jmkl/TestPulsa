@@ -34,7 +34,7 @@ public class CekHargaTabFragment extends BaseSherlockFragment {
 		final String smsMessage = String.format("HRG.%s.%s", harga, userPin);
 		btnCekHarga.setOnClickListener(new KirimButtonListener(
 				getSherlockActivity().getApplicationContext(), smsMessage,
-				mConfig.sendToPhoneNumber));
+				sendToPhoneNumber));
 		return view;
 	}
 

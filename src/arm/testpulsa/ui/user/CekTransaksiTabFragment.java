@@ -22,15 +22,12 @@ public class CekTransaksiTabFragment extends BaseSherlockFragment {
 		txtCekTrans = (EditText) view.findViewById(R.id.textCekTrans);
 		btnCekTrans = (Button) view.findViewById(R.id.btn_cekTrans);
 
-		// setting listener
-		txtCekTrans.addTextChangedListener(this);
-		btnCekTrans.setEnabled(false);
-
 		final String smsMessage = String.format("TRX.%s", userPin);
 
+		// setting listener
 		btnCekTrans.setOnClickListener(new KirimButtonListener(
 				getSherlockActivity().getApplicationContext(), smsMessage,
-				mConfig.sendToPhoneNumber));
+				sendToPhoneNumber));
 		return view;
 	}
 }

@@ -26,11 +26,6 @@ public class ComplainTabFragment extends BaseSherlockFragment {
 		txtKomplainText = (EditText) view.findViewById(R.id.text_KomplainText);
 		btnKomplain = (Button) view.findViewById(R.id.btn_komplain);
 
-		// set listener
-		txtKomplainNum.addTextChangedListener(this);
-		txtKomplainText.addTextChangedListener(this);
-		btnKomplain.setEnabled(true);
-
 		kompNum = txtKomplainNum.getText().toString();
 		kompText = txtKomplainText.getText().toString();
 
@@ -38,7 +33,7 @@ public class ComplainTabFragment extends BaseSherlockFragment {
 
 		btnKomplain.setOnClickListener(new KirimButtonListener(
 				getSherlockActivity().getApplicationContext(), smsMessage,
-				mConfig.sendToPhoneNumber));
+				sendToPhoneNumber));
 		return view;
 	}
 }
