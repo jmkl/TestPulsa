@@ -11,15 +11,17 @@ import com.actionbarsherlock.app.SherlockFragment;
 
 public abstract class BaseSherlockFragment extends SherlockFragment {
 	protected TestPulsaConfiguration mConfig;
-	protected String userPin;
+	protected String userPin, sendToPhoneNumber;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		mConfig = new TestPulsaConfiguration(
 				PreferenceManager
-						.getDefaultSharedPreferences(getSherlockActivity()));
+						.getDefaultSharedPreferences(getSherlockActivity().getApplicationContext()));
 		userPin = mConfig.userPin;
+		sendToPhoneNumber = mConfig.sendToPhoneNumber;
+		
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 }
