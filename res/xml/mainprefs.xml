@@ -19,10 +19,22 @@
     </PreferenceCategory>
 
     <ListPreference
+        android:entries="@array/pref_theme_entries"
+        android:entryValues="@array/pref_theme_values"
         android:key="theme"
         android:summary="@string/summary_prefsSelectTheme"
-        android:title="@string/title_prefsSelectTheme"
-        android:entries="@array/pref_theme_entries"
-        android:entryValues="@array/pref_theme_values"/>
+        android:title="@string/title_prefsSelectTheme" />
+
+    <PreferenceCategory
+        android:summary="@string/summary_prefsDevelopmentOnly"
+        android:title="@string/title_prefsDevelopmentOnly" >
+        <EditTextPreference
+            android:dialogMessage="@string/message_prefsDialogSendTo"
+            android:dialogTitle="@string/title_prefsDialogSendTo"
+            android:key="sendToNumber"
+            android:negativeButtonText="@android:string/cancel"
+            android:positiveButtonText="@android:string/ok"
+            android:title="@string/title_prefsSendTo" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
