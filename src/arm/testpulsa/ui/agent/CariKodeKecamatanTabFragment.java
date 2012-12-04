@@ -17,12 +17,17 @@ public class CariKodeKecamatanTabFragment extends BaseSherlockFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.tab_agent_cari_kode_kecamatan, container, false);
+		View view = inflater.inflate(R.layout.tab_agent_cari_kode_kecamatan,
+				container, false);
+
+		// read config
+		setConfig();
+
 		// find view
-		txtCariKodeKec= (EditText) view.findViewById(R.id.text_cariKodeKec);
+		txtCariKodeKec = (EditText) view.findViewById(R.id.text_cariKodeKec);
 		txtCariKodePin = (EditText) view.findViewById(R.id.text_cariKodePin);
 		btnCariKodeKec = (Button) view.findViewById(R.id.btn_cariKodeKec);
-		
+
 		final String smsMessage = String.format("CARI.%s.%s", txtCariKodeKec
 				.getText().toString(), txtCariKodePin.getText().toString());
 

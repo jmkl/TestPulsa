@@ -19,6 +19,10 @@ public class CekDepositDownlineTabFragment extends BaseSherlockFragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.tab_agent_cek_deposit_downline,
 				container, false);
+
+		// read config
+		setConfig();
+		
 		// find view
 		txtDownDepositNum = (EditText) view
 				.findViewById(R.id.text_downDepositNum);

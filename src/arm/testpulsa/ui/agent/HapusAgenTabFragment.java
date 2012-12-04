@@ -19,6 +19,10 @@ public class HapusAgenTabFragment extends BaseSherlockFragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.tab_agent_hapus_agen, container,
 				false);
+
+		// read config
+		setConfig();
+
 		// find view
 		txtHapusAgenNum = (EditText) view.findViewById(R.id.text_hapusAgenNum);
 		txtHapusAgenPin = (EditText) view.findViewById(R.id.text_hapusAgenPin);

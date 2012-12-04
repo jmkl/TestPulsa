@@ -20,6 +20,10 @@ public class TambahAgenTabFragment extends BaseSherlockFragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.tab_agent_tambah_agen, container,
 				false);
+
+		// read config
+		setConfig();
+
 		// find view
 		txtTmbhAgenNum = (EditText) view.findViewById(R.id.text_tmbhAgenNum);
 		txtTmbhAgenName = (EditText) view.findViewById(R.id.text_tmbhAgenName);

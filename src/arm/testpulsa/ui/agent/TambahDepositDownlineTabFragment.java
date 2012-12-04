@@ -19,6 +19,10 @@ public class TambahDepositDownlineTabFragment extends BaseSherlockFragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(
 				R.layout.tab_agent_tambah_deposit_downline, container, false);
+
+		// read config
+		setConfig();
+
 		// find view
 		txtTmbhDpstNum = (EditText) view.findViewById(R.id.text_tmbhDpstNum);
 		txtTmbhDpstJum = (EditText) view.findViewById(R.id.text_tmbhDpstJum);
